@@ -1,21 +1,79 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.block{
+  border-radius:15rpx;
+  margin: 25rpx;
+  height: 180rpx;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.blockTitle{
+  color: #ffffff;
+  width: 300rpx;
+  font-size: 34rpx;
+  padding: 20rpx 20rpx 0 30rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.blockType{
+  color: #ffffff;
+  font-size: 19rpx;
+  text-align:center;
+  background: #ffffff;  
+  background-color:rgba(0,0,0,0.2); 
+  margin-top: 6rpx;
+  margin-left: 30rpx;
+  width: 65rpx;
+  border-radius:5rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.blockLeft{
+  float: left;
+}
+
+.blockRight{
+  float: right;
+}
+
+.blockTime{
+  color: #ffffff; 
+  opacity:0.4;
+  font-size: 22rpx;
+  padding-left: 30rpx;
+  padding-top: 40rpx;
+  width: 300rpx;
+}
+
+.blockButton{
+  color: #ffffff;
+  font-size: 19rpx;
+  text-align:center;
+  margin-top: 30rpx;
+  margin-right: 35rpx;
+  width: 100rpx;
+  border-radius:15rpx;
+  border-style: solid;
+  border-width: 1rpx;
+  height: 29rpx;
+}
+
+.blockDaysTitle{
+  float: right;
+  color: #ffffff; 
+  opacity:0.4;
+  font-size: 19rpx;
+  padding-right: 16rpx; 
+  padding-top: 10rpx; 
+  width: 100rpx;
+}
+
+.blockDays{
+  color: #ffffff;
+  font-size: 55rpx;
+  padding-right: 35rpx;
+}
+
+.blue{
+  background: #548fe9;
+}
+
+.red{
+  background: #dd5a60;
 }
