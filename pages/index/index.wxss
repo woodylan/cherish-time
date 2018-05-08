@@ -1,79 +1,80 @@
 /**index.wxss**/
-.block{
-  border-radius:15rpx;
+
+.block {
+  border-radius: 15rpx;
   margin: 25rpx;
   height: 180rpx;
 }
 
-.blockTitle{
-  color: #ffffff;
+.blockTitle {
+  color: #fff;
   width: 300rpx;
   font-size: 34rpx;
   padding: 20rpx 20rpx 0 30rpx;
 }
 
-.blockType{
-  color: #ffffff;
+.blockType {
+  color: #fff;
   font-size: 19rpx;
-  text-align:center;
-  background: #ffffff;  
-  background-color:rgba(0,0,0,0.2); 
+  text-align: center;
+  background: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
   margin-top: 6rpx;
   margin-left: 30rpx;
   width: 65rpx;
-  border-radius:5rpx;
+  border-radius: 5rpx;
 }
 
-.blockLeft{
+.blockLeft {
   float: left;
 }
 
-.blockRight{
+.blockRight {
   float: right;
 }
 
-.blockTime{
-  color: #ffffff; 
-  opacity:0.4;
+.blockTime {
+  color: #fff;
+  opacity: 0.4;
   font-size: 22rpx;
   padding-left: 30rpx;
   padding-top: 40rpx;
   width: 300rpx;
 }
 
-.blockButton{
-  color: #ffffff;
+.blockButton {
+  color: #fff;
   font-size: 19rpx;
-  text-align:center;
+  text-align: center;
   margin-top: 30rpx;
   margin-right: 35rpx;
   width: 100rpx;
-  border-radius:15rpx;
+  border-radius: 15rpx;
   border-style: solid;
   border-width: 1rpx;
   height: 29rpx;
 }
 
-.blockDaysTitle{
+.blockDaysTitle {
   float: right;
-  color: #ffffff; 
-  opacity:0.4;
+  color: #fff;
+  opacity: 0.4;
   font-size: 19rpx;
-  padding-right: 16rpx; 
-  padding-top: 10rpx; 
+  padding-right: 16rpx;
+  padding-top: 10rpx;
   width: 100rpx;
 }
 
-.blockDays{
-  color: #ffffff;
+.blockDays {
+  color: #fff;
   font-size: 55rpx;
   padding-right: 35rpx;
 }
 
-.blue{
-  background: #548fe9;
+.blue {
+  background: #03a9f4;
 }
 
-.red{
-  background: #dd5a60;
+.red {
+  background: #e84e40;
 }

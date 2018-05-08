@@ -2,31 +2,31 @@
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <view id="green" class="block blue">
-     <view class='blockLeft'>
-      <view id="green" class="blockTitle">在一起</view>
-      <view id="green" class="blockType">累计日</view>
-      <view id="green" class="blockTime">起始日：2017-09-09</view>
-     </view>
+      <view class='blockLeft'>
+        <view id="green" class="blockTitle">出生</view>
+        <view id="green" class="blockType">累计</view>
+        <view id="green" class="blockTime">起始日：2017-09-09</view>
+      </view>
 
-     <view class='blockRight'>
-      <view id="green" class="blockButton">查看详情</view>
-      <view id="green" class="blockDaysTitle">已过天数</view>
-      <view id="green" class="blockDays">240</view>
-     </view>
+      <view class='blockRight'>
+        <view id="green" class="blockButton">查看详情</view>
+        <view id="green" class="blockDaysTitle">已过天数</view>
+        <view id="green" class="blockDays">240</view>
+      </view>
     </view>
 
     <view id="green" class="block red">
-     <view class='blockLeft'>
-      <view id="green" class="blockTitle">年倒计时</view>
-      <view id="green" class="blockType">倒计日</view>
-      <view id="green" class="blockTime">目标日：2018-12-31</view>
-     </view>
+      <view class='blockLeft'>
+        <view id="green" class="blockTitle">年倒计时</view>
+        <view id="green" class="blockType">倒数</view>
+        <view id="green" class="blockTime">目标日：2018-12-31</view>
+      </view>
 
-     <view class='blockRight'>
-      <view id="green" class="blockButton">查看详情</view>
-      <view id="green" class="blockDaysTitle">剩余天数</view>
-      <view id="green" class="blockDays">239</view>
-     </view>
+      <view class='blockRight'>
+        <view id="green" class="blockButton">查看详情</view>
+        <view id="green" class="blockDaysTitle">剩余天数</view>
+        <view id="green" class="blockDays">239</view>
+      </view>
     </view>
   </scroll-view>
 </view>
