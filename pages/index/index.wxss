@@ -3,13 +3,13 @@
 .block {
   border-radius: 15rpx;
   margin: 25rpx;
-  height: 180rpx;
+  height: 190rpx;
 }
 
 .blockTitle {
   color: #fff;
   width: 300rpx;
-  font-size: 34rpx;
+  font-size: 36rpx;
   padding: 20rpx 20rpx 0 30rpx;
 }
 
@@ -19,7 +19,7 @@
   text-align: center;
   background: #fff;
   background-color: rgba(0, 0, 0, 0.2);
-  margin-top: 6rpx;
+  margin-top: 10rpx;
   margin-left: 30rpx;
   width: 65rpx;
   border-radius: 5rpx;
@@ -35,19 +35,20 @@
 
 .blockTime {
   color: #fff;
-  opacity: 0.4;
-  font-size: 22rpx;
-  padding-left: 30rpx;
-  padding-top: 40rpx;
+  opacity: 0.5;
+  font-size: 25rpx;
+  padding-left: 32rpx;
+  padding-top: 65rpx;
   width: 300rpx;
 }
 
 .blockButton {
   color: #fff;
+  float: right;
   font-size: 19rpx;
   text-align: center;
-  margin-top: 30rpx;
-  margin-right: 35rpx;
+  margin-top: 15rpx;
+  margin-right: 40rpx;
   width: 100rpx;
   border-radius: 15rpx;
   border-style: solid;
@@ -55,20 +56,37 @@
   height: 29rpx;
 }
 
-.blockDaysTitle {
+.blockRight #hadPassLabel {
   float: right;
+  text-align: right;
   color: #fff;
-  opacity: 0.4;
+  opacity: 0.8;
   font-size: 19rpx;
-  padding-right: 16rpx;
-  padding-top: 10rpx;
+  padding-right: 40rpx;
+  padding-top: 20rpx;
   width: 100rpx;
 }
 
-.blockDays {
+.blockRight #days {
+  display: inline;
   color: #fff;
+  text-align: right;
   font-size: 55rpx;
-  padding-right: 35rpx;
+}
+
+.daysDiv {
+  padding-top: 10rpx;
+  padding-right: 40rpx;
+}
+
+.blockRight #dayLabel {
+  /* float: right; */
+  display: inline;
+  text-align: right;
+  color: #fff;
+  opacity: 0.7;
+  font-size: 19rpx;
+  padding-left: 8rpx;
 }
 
 .blue {
@@ -78,3 +96,18 @@
 .red {
   background: #e84e40;
 }
+
+.float-button {
+  z-index: 998;
+  bottom: 34rpx;
+  right: 40rpx;
+  position: fixed;
+}
+
+.float-button-icon {
+  display: inline-block;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+

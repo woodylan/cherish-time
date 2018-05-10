@@ -11,14 +11,6 @@
     "backgroundColor":"#fbfbfb",
     "backgroundColorTop":"#ffffff"
   },
-  "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页"
-    }, {
-      "pagePath": "pages/logs/logs",
-      "text": "设置"
-    }]
-  },
+
   "debug": true
 }
