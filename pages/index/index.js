@@ -9,13 +9,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     array: ['倒计日', '累计日'],
-  },
-  //选择器
-  bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
-    })
+    showView: true,
   },
   //事件处理函数
   bindViewTap: function() {
@@ -23,7 +17,8 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    showView: (options.showView == "true" ? true : false)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -50,6 +45,8 @@ Page({
         }
       })
     }
+
+    
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -58,5 +55,26 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  onChangeShowState: function () {
+    var that = this;
+    that.setData({
+      showView: (!that.data.showView)
+    })
+  },
+  closeFullScreen:function(){
+    var that = this;
+    
+    that.setData({
+      showView: (false)
+    })
+  },
+
+  //选择器
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
 })

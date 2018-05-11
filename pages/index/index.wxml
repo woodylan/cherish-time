@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <view id="green" class="block blue">
+    <view id="green" class="block blue" bindtap="onChangeShowState">
       <view class='blockLeft'>
         <view id="green" class="blockTitle">出生</view>
         <!-- <view id="green" class="blockType">累计</view> -->
@@ -45,6 +45,14 @@
   </picker>
 </view>
 
+<view id="fullScreen" class="viewHide{{showView?'ViewShow':''}}">
+    <view class="content">
+    <view class='full-icon-close' bindtap="closeFullScreen" value='false'>X</view>
+    </view>
+    <!-- 这里开始才是真正的内容 -->
+    <view class="dialog"></view>
+</view>
+
 <!-- <view class="all-button-wrapper">
     <view class="all-button delay-0" data-type="image"
         catchtap="addTimeline">
@@ -52,3 +60,5 @@
         <view class="all-button-label">照片</view>
     </view>
 </view>  -->
+
+
