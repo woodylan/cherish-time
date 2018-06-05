@@ -52,13 +52,3 @@
     <!-- 这里开始才是真正的内容 -->
     <view class="dialog"></view>
 </view>
-
-<!-- <view class="all-button-wrapper">
-    <view class="all-button delay-0" data-type="image"
-        catchtap="addTimeline">
-        <image class="all-button-icon" src="/images/icon_image.png"></image>
-        <view class="all-button-label">照片</view>
-    </view>
-</view>  -->
-
-

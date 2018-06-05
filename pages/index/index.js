@@ -9,7 +9,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     array: ['倒计日', '累计日'],
-    showView: true,
+    showView: false,
   },
   //事件处理函数
   bindViewTap: function() {
@@ -73,6 +73,9 @@ Page({
   //选择器
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+    wx.navigateTo({
+      url: '/pages/create/create'
+    });
     this.setData({
       index: e.detail.value
     })

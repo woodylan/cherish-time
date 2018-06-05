@@ -1,0 +1,36 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__bd">
+      <input class="weui-input" name="name" placeholder="倒计时名称" />
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">目标日期</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker mode="date" name="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <view class="weui-input">{{date}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label">备注</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" name="remark" placeholder="无" />
+    </view>
+  </view>
+</view>
+
+<view class="weui-btn-area">
+  <button class="weui-btn" type="primary" formType="submit">确定</button>
+</view>
+
+</form>

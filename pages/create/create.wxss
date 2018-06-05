@@ -1,0 +1,3 @@
+/* pages/create/create.wxss */
+
+@import '/weui.wxss'
