@@ -5,7 +5,7 @@ exports.ACTION = {
     CHECK_AUTH: 'user/check-auth',
   },
   TIME: {
-    ADD: 'time/save',
+    CREATE: 'time/create',
     DELETE: 'time/delete',
     LIST: 'time/list',
     SINGLE: 'time/detail',

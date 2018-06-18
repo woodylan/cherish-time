@@ -1,5 +1,6 @@
 // pages/create/create.js
 const app = getApp()
+var CONFIG = require("../../config");
 Page({
   data: {
     timeType: 2,
@@ -10,7 +11,7 @@ Page({
    */
   onLoad: function (option) {
     this.setData({
-      timeType : option.type,
+      timeType: option.type,
     })
   },
 
@@ -70,5 +71,20 @@ Page({
 
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var inputData = e.detail.value
+    var data = {
+      'name': inputData.name,
+      'type': inputData.type,
+      'date': inputData.date,
+      'color': '#03a9f4'
+    }
+    // var data = e.detail.value
+    // let _this = this;
+    // app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function (res) {
+    //   console.log(res)
+    //   _this.setData({
+    //     timeList: res.data.list
+    //   })
+    // })
   },
 })

@@ -1,5 +1,7 @@
 <!--index.wxml-->
-<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+<view wx:if="{{isGetUserInfo == false }}">
+  <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+</view>
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <view wx:for="{{ timeList }}">
