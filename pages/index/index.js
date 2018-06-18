@@ -11,9 +11,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     array: ['倒数日', '累计日'],
     showView: false,
-    timeList: [
-      { 'name': '出生' }
-    ]
+    timeList: []
   },
   //事件处理函数
   bindViewTap: function () {

@@ -1,8 +1,8 @@
 exports.API_URL = "https://test-time.wugenglong.com/api/weapp/v1/";
 exports.ACTION = {
-  CHECK_AUTH: 'account/check-auth',
   USER: {
-    LOGIN: 'user/login'
+    LOGIN: 'user/login',
+    CHECK_AUTH: 'user/check-auth',
   },
   TIME: {
     ADD: 'time/save',
