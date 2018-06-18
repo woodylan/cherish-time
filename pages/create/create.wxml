@@ -3,7 +3,7 @@
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
-          <view class="weui-label">倒计时名称</view>
+          <view class="weui-label">{{ timeType==1? '倒数日':'累计日' }}名称</view>
         </view>
         <view class="weui-cell__bd">
           <input class="weui-input" name="name" />
@@ -12,10 +12,10 @@
     </view>
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
-        <view class="weui-label">目标日期</view>
+        <view class="weui-label">{{ timeType==1? '目标':'起始' }}日期</view>
       </view>
       <view class="weui-cell__bd">
-        <picker mode="date" name="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <picker mode="date" name="date" value="{{date}}" start="1970-01-01" bindchange="bindDateChange">
           <view class="weui-input">{{date}}</view>
         </picker>
       </view>

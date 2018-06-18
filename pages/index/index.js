@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+var CONFIG = require("../../config");
 
 Page({
   data: {
@@ -8,11 +9,14 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    array: ['倒计日', '累计日'],
+    array: ['倒数日', '累计日'],
     showView: false,
+    timeList: [
+      { 'name': '出生' }
+    ]
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
@@ -24,7 +28,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -45,10 +49,10 @@ Page({
         }
       })
     }
-
-    
+    // console.log(this.globalData.auth);
+    this.getTimeData();
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
@@ -62,9 +66,9 @@ Page({
       showView: (!that.data.showView)
     })
   },
-  closeFullScreen:function(){
+  closeFullScreen: function () {
     var that = this;
-    
+
     that.setData({
       showView: (false)
     })
@@ -72,12 +76,22 @@ Page({
 
   //选择器
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    let _type = 1; //默认倒计时
+    if (e.detail.value == 1) {
+      _type = 2; //累计日
+    }
     wx.navigateTo({
-      url: '/pages/create/create'
+      url: '/pages/create/create?type=' + _type
     });
-    this.setData({
-      index: e.detail.value
+  },
+
+  //获取列表
+  getTimeData: function () {
+    let _this = this;
+    app.postRequest(CONFIG.ACTION.TIME.LIST, {}, function (res) {
+      _this.setData({
+        timeList: res.data.list
+      })
     })
   },
 })

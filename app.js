@@ -16,8 +16,9 @@ App({
         wx.getUserInfo({
           success: function (userInfoRes) {
             var data = { 'code': _code, 'iv': userInfoRes.iv, 'encryptedData': userInfoRes.encryptedData }
-            _this.postRequest(CONFIG.ACTION.USER.LOGIN, data,function(res){
-              _this.globalData.auth = res.data.auth
+            _this.postRequest(CONFIG.ACTION.USER.LOGIN, data, function (res) {
+              wx.removeStorageSync('auth');
+              wx.setStorageSync('auth', res.data.auth);
             })
           }
         })
@@ -26,11 +27,13 @@ App({
   },
 
   postRequest: function (action, inputData, callback) {
+    let _this = this;
     wx.request({
       url: CONFIG.API_URL + action,
       data: { "data": JSON.stringify(inputData) },
       header: {
         'Content-Type': 'application/x-www-form-urlencoded',
+        Auth: wx.getStorageSync('auth') || '' 
       },
       method: 'POST',
       dataType: 'json',

@@ -1,22 +1,27 @@
 <!--index.wxml-->
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <view id="green" class="block blue" bindtap="onChangeShowState">
-      <view class='blockLeft'>
-        <view id="green" class="blockTitle">出生</view>
-        <!-- <view id="green" class="blockType">累计</view> -->
-        <view id="green" class="blockTime">起始日：2001-01-09</view>
-      </view>
 
-      <view class='blockRight'>
-        <view id="hadPassLabel">已过</view>
-        <view class='daysDiv'>
-          <view id="days">2400</view>
-          <view id="dayLabel" class="blockDayLable">天</view>
+    <view wx:for="{{ timeList }}">
+      <view id="green" class="block blue" bindtap="onChangeShowState">
+        <view class='blockLeft'>
+          <view id="green" class="blockTitle">{{item.name}}</view>
+          <!-- <view id="green" class="blockType">累计</view> -->
+          <view id="green" class="blockTime">起始日：{{item.date}}</view>
         </view>
-        <view id="green" class="blockButton">查看详情</view>
+
+        <view class='blockRight'>
+          <view id="hadPassLabel">已过</view>
+          <view class='daysDiv'>
+            <view id="days">{{item.days}}</view>
+            <view id="dayLabel" class="blockDayLable">天</view>
+          </view>
+          <view id="green" class="blockButton">查看详情</view>
+        </view>
       </view>
     </view>
+
+
 
     <view id="green" class="block red">
       <view class='blockLeft'>
@@ -38,17 +43,17 @@
   </scroll-view>
 </view>
 
- <view class="float-button">
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-    <image class="float-button-icon" src="/images/icon-add.png" ></image>
+<view class="float-button">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <image class="float-button-icon" src="/images/icon-add.png"></image>
     {{array[index]}}
   </picker>
 </view>
 
 <view id="fullScreen" class="viewHide{{showView?'ViewShow':''}}">
-    <view class="content">
+  <view class="content">
     <view class='full-icon-close' bindtap="closeFullScreen" value='false'>X</view>
-    </view>
-    <!-- 这里开始才是真正的内容 -->
-    <view class="dialog"></view>
+  </view>
+  <!-- 这里开始才是真正的内容 -->
+  <view class="dialog"></view>
 </view>
