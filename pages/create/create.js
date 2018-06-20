@@ -12,13 +12,14 @@ Page({
   onLoad: function (option) {
     this.setData({
       timeType: option.type,
-    })
+    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
   },
 
   /**
@@ -78,13 +79,13 @@ Page({
       'date': inputData.date,
       'color': '#03a9f4'
     }
-    // var data = e.detail.value
-    // let _this = this;
-    // app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function (res) {
-    //   console.log(res)
-    //   _this.setData({
-    //     timeList: res.data.list
-    //   })
-    // })
+    var data = e.detail.value
+    let _this = this;
+    app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function (res) {
+      console.log(res)
+      _this.setData({
+        timeList: res.data.list
+      })
+    })
   },
 })
