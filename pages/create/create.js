@@ -4,6 +4,10 @@ var CONFIG = require("../../config");
 Page({
   data: {
     timeType: 2,
+    radioItems: [
+      { name: '红色', value: '#e84e40' },
+      { name: '蓝色', value: '#ffff', checked: true }
+    ]
   },
 
   /**
