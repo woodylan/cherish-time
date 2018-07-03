@@ -4,16 +4,14 @@ var CONFIG = require("../../config");
 Page({
   data: {
     timeType: 2,
-    radioItems: [
-      { title: '红色', value: '#e84e40' },
-      { title: '蓝色', value: '#ffff', checked: true }
-    ]
+    radioItems: ['#e84e40', '#548fe9', '#996699', '#993399', '#CCCCCC', '#99CC66', '#FF6666', '#FFCC00', '#CCCC33', '#996633', '#669933'],
+    radioSelect: '#e84e40',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (option) {
+  onLoad: function(option) {
     this.setData({
       timeType: option.type,
     });
@@ -22,59 +20,65 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
-  bindDateChange: function (e) {
+  selectRadio: function(e) {
+    this.setData({
+      radioSelect: e.currentTarget.dataset.text
+    })
+  },
+
+  bindDateChange: function(e) {
     this.setData({
       date: e.detail.value
     })
   },
 
-  formSubmit: function (e) {
+  formSubmit: function(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var inputData = e.detail.value
     var data = {
@@ -85,7 +89,7 @@ Page({
     }
     var data = e.detail.value
     let _this = this;
-    app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function (res) {
+    app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function(res) {
       console.log(res)
       _this.setData({
         timeList: res.data.list

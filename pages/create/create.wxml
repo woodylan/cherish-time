@@ -10,19 +10,20 @@
   </view>
 
   <input name="type" value="{{timeType}}" hidden/>
-
-  <view class="input-wrap">
-    <wxc-select items="{{radioItems}}" color="#28a745" checked="1" bind:change="onChange" name="color"></wxc-select>
-  </view>
+  <input name="color" value="{{radioSelect}}" hidden/>
 
   <view class="input-wrap">
     <wxc-input type="number" mode="wrapped" placeholder="备注" name="remark"></wxc-input>
   </view>
 
-  <view class="container">
-    <view class="input-wrap">
-      <wxc-button size="large" type="success" value="确定" formType="submit"></wxc-button>
+  <view class="input-wrap" wx:for="{{radioItems}}" class="circleGroup">
+    <view class="selectCircle" bindtap="selectRadio" style="background-color:{{item}}" data-text="{{item}}">
+      <block wx:if="{{item == radioSelect}}">✓</block>
     </view>
+  </view>
+
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" formType="submit">确定</button>
   </view>
 
 </form>
