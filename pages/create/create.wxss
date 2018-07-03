@@ -1,3 +1,12 @@
 /* pages/create/create.wxss */
 
-@import '/weui.wxss'
+/* @import '/weui.wxss'  */
+
+.input-wrap {
+  position: relative;
+  margin: 20rpx 10rpx 0 10rpx;
+}
+
+.container {
+  padding-top: 20rpx;
+}

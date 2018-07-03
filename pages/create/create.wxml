@@ -1,51 +1,28 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">{{ timeType==1? '倒数日':'累计日' }}名称</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input class="weui-input" name="name" />
-          <input class="weui-input" name="type" value="{{timeType}}" hidden/>
-        </view>
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-        <view class="weui-label">{{ timeType==1? '目标':'起始' }}日期</view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker mode="date" name="date" value="{{date}}" start="1970-01-01" bindchange="bindDateChange">
-          <view class="weui-input">{{date}}</view>
-        </picker>
-      </view>
-    </view>
-
-    <view class="weui-cell weui-cell_input weui-cell_vcode">
-      <view class="weui-cell__hd">
-        <view class="weui-label">备注</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" name="remark" placeholder="无" />
-      </view>
-    </view>
-
-    <view class="weui-cells weui-cells_after-title">
-      <radio-group bindchange="radioChange" name="color">
-        <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
-          <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
-
-          <view class="weui-cell__bd">{{item.name}}</view>
-          <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
-            <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
-          </view>
-        </label>
-      </radio-group>
-    </view>
-
+  <view class="input-wrap">
+    <wxc-input type="number" mode="wrapped" right="{{true}}" title="{{ timeType==1? '倒数日':'累计日' }}名称" name="name" placeholder="起个名吧"></wxc-input>
   </view>
-  <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" formType="submit">确定</button>
+
+  <view class="input-wrap">
+    <picker mode="date" name="date" value="{{date}}" start="1970-01-01" bindchange="bindDateChange">
+      <wxc-input type="number" mode="wrapped" right="{{true}}" title="{{ timeType==1? '目标':'起始' }}日期" placeholder="选择一个日期" value="{{date}}"></wxc-input>
+    </picker>
   </view>
+
+  <input name="type" value="{{timeType}}" hidden/>
+
+  <view class="input-wrap">
+    <wxc-select items="{{radioItems}}" color="#28a745" checked="1" bind:change="onChange" name="color"></wxc-select>
+  </view>
+
+  <view class="input-wrap">
+    <wxc-input type="number" mode="wrapped" placeholder="备注" name="remark"></wxc-input>
+  </view>
+
+  <view class="container">
+    <view class="input-wrap">
+      <wxc-button size="large" type="success" value="确定" formType="submit"></wxc-button>
+    </view>
+  </view>
+
 </form>

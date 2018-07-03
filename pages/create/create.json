@@ -1,1 +1,8 @@
-{}
+{
+  "usingComponents": {
+    "wxc-input": "../../dist/packages/@minui/wxc-input/dist/index",
+    "wxc-button": "../../dist/packages/@minui/wxc-button/dist/index",
+    "wxc-icon": "../../dist/packages/@minui/wxc-icon/dist/index",
+    "wxc-select": "../../dist/packages/@minui/wxc-select/dist/index"
+  }
+}
