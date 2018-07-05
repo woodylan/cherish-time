@@ -10,8 +10,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     array: ['倒数日', '累计日'],
-    showView: false,
-    timeList: []
+    timeList: [],
+    maskStatus: 'hide'
   },
   //事件处理函数
   bindViewTap: function () {
@@ -62,19 +62,6 @@ Page({
       hasUserInfo: true
     })
   },
-  onChangeShowState: function () {
-    var that = this;
-    that.setData({
-      showView: (!that.data.showView)
-    })
-  },
-  closeFullScreen: function () {
-    var that = this;
-
-    that.setData({
-      showView: (false)
-    })
-  },
 
   //选择器
   bindPickerChange: function (e) {
@@ -85,6 +72,12 @@ Page({
     wx.navigateTo({
       url: '/pages/create/create?type=' + _type
     });
+  },
+
+  showMask() {
+    this.setData({
+      maskStatus: 'show'
+    })
   },
 
   //获取列表
