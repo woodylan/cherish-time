@@ -110,71 +110,75 @@
   height: 120rpx;
 }
 
-.authorization{
-    width:100vw;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    background-color:#fff
+.authorization {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
 }
-.authorization__box{
-    width:490rpx;
-    margin-top:320rpx
+
+.authorization__box {
+  width: 490rpx;
+  margin-top: 320rpx;
 }
-.authorization__ques{
-    line-height:42rpx;
-    font-size:34rpx;
-    font-weight:bold;
-    color:#19191A;
-    text-align:center
+
+.authorization__ques {
+  line-height: 42rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #19191a;
+  text-align: center;
 }
-.authorization__tip{
-    margin-top:20rpx;
-    line-height:32rpx;
-    font-size:26rpx;
-    color:rgba(53,52,61,0.7);
-    text-align:center
+
+.authorization__tip {
+  margin-top: 20rpx;
+  line-height: 32rpx;
+  font-size: 26rpx;
+  color: rgba(53, 52, 61, 0.7);
+  text-align: center;
 }
-.authorization__btn{
-    margin-top:60rpx;
-    color:#fff;
-    font-size:34rpx;
-    background-color:#1d8ce0
+
+.authorization__btn {
+  margin-top: 60rpx;
+  color: #fff;
+  font-size: 34rpx;
+  background-color: #1d8ce0;
 }
-.authorization__btn-no{
-    margin-top:38rpx;
-    font-size:26rpx;
-    color:#1d8ce0;
-    text-align:center
+
+.authorization__btn-no {
+  margin-top: 38rpx;
+  font-size: 26rpx;
+  color: #1d8ce0;
+  text-align: center;
 }
 
 #fullScreen {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 999;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
 }
+
 #fullScreen .content {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    /* background-color: #03a9f4; */
-    /* opacity: 0.9; */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
-.viewHide{
-    display: none;
+.viewHide {
+  display: none;
 }
 
-.ViewShow{
-    display: block;
+.ViewShow {
+  display: block;
 }
 
-.full-icon-close{
+.full-icon-close {
   font-size: 50rpx;
   color: #fff;
   content: "\2716";
@@ -182,4 +186,17 @@
   margin: 15rpx 20rpx;
 }
 
+#fullScreen #timeType {
+  clear: both;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+}
 
+#fullScreen #timeName {
+  clear: both;
+  font-size: 35rpx;
+  color: #fff;
+  padding-top: 20rpx;
+  text-align: center;
+}

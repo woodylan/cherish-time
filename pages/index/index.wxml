@@ -50,7 +50,17 @@
 <view id="fullScreen" class="viewHide{{isShowMask?'ViewShow':''}}">
   <view class="content" style="background-color:{{currentMaskColor}}">
     <view class='full-icon-close' bindtap="hideMask" value='false'>X</view>
+
+   <view id="timeType">{{ currentMaskItem.type==1? '倒数日':'累计日' }}</view>
+   <view id="timeName">{{ currentMaskItem.name }}</view>
+
+   <view id="timeName">{{ currentMaskItem.days }}</view>
+
+   <view id="timeName">{{ currentMaskItem.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(currentMaskItem.date)}}</view>
+
+   <view id="timeName">{{ currentMaskItem.remark }}</view>
   </view>
   <!-- 这里开始才是真正的内容 -->
+  {{currentMaskItem.type}}
   <view class="dialog"></view>
 </view>
