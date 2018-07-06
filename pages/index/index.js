@@ -15,12 +15,8 @@ Page({
   },
 
   onLoad: function(options) {
-
     //获取用户信息
     this.getUserInfo()
-
-    console.log('获取列表接口')
-    // this.getTimeData();
   },
 
   onShow: function() {},
@@ -64,9 +60,6 @@ Page({
     let _this = this
     wx.login({
       success: LoginRes => {
-        console.log('asdafsd')
-        console.log(_this.data.hasUserInfo);
-        console.log(_this.isLogin())
         wx.getUserInfo({
           success: res => {
             // 可以将 res 发送给后台解码出 unionId

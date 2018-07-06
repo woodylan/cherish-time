@@ -1,6 +1,7 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="input-wrap">
-    <wxc-input type="number" mode="wrapped" right="{{true}}" title="{{ timeType==1? '倒数日':'累计日' }}名称" name="name" placeholder="起个名吧"></wxc-input>
+    <input name="name" value="{{inputName}}" hidden/>
+    <wxc-input type="number" mode="wrapped" right="{{true}}" title="{{ timeType==1? '倒数日':'累计日' }}名称" bind:input="onInputName" placeholder="起个名吧"></wxc-input>
   </view>
 
   <view class="input-wrap">
@@ -13,7 +14,8 @@
   <input name="color" value="{{radioSelect}}" hidden/>
 
   <view class="input-wrap">
-    <wxc-input type="number" mode="wrapped" placeholder="备注" name="remark"></wxc-input>
+    <input name="remark" value="{{inputRemark}}" hidden/>
+    <wxc-input type="number" mode="wrapped" placeholder="备注" bind:input="onInputRemark"></wxc-input>
   </view>
 
   <view class="input-wrap" wx:for="{{radioItems}}" class="circleGroup">

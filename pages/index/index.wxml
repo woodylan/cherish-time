@@ -1,4 +1,13 @@
 <!--index.wxml-->
+<wxs module="m1">
+var formatDataToString = function(val) {
+  var reg = getRegExp('(.{4})(.{2})(.{2})');
+  return val.toString().replace(reg, '$1-$2-$3');
+}
+
+module.exports.formatDataToString = formatDataToString;
+</wxs>
+
 <view class="authorization" wx:if="{{hasUserInfo === false }}">
   <view class="authorization__box">
     <view class="authorization__ques">惜时光申请获得你的信息</view>
@@ -16,7 +25,7 @@
       <view class="block" style="background : {{item.color}}" bindtap="showMask">
         <view class='blockLeft'>
           <view class="blockTitle">{{item.name}}</view>
-          <view class="blockTime">{{ item.type == 1? '目标日':'起始日' }}：{{item.date}}</view>
+          <view class="blockTime">{{ item.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(item.date)}}</view>
         </view>
 
         <view class='blockRight'>
