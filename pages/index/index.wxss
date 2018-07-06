@@ -109,3 +109,41 @@
   width: 120rpx;
   height: 120rpx;
 }
+
+.authorization{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    background-color:#fff
+}
+.authorization__box{
+    width:490rpx;
+    margin-top:320rpx
+}
+.authorization__ques{
+    line-height:42rpx;
+    font-size:34rpx;
+    font-weight:bold;
+    color:#19191A;
+    text-align:center
+}
+.authorization__tip{
+    margin-top:20rpx;
+    line-height:32rpx;
+    font-size:26rpx;
+    color:rgba(53,52,61,0.7);
+    text-align:center
+}
+.authorization__btn{
+    margin-top:60rpx;
+    color:#fff;
+    font-size:34rpx;
+    background-color:#1d8ce0
+}
+.authorization__btn-no{
+    margin-top:38rpx;
+    font-size:26rpx;
+    color:#1d8ce0;
+    text-align:center
+}

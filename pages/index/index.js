@@ -13,58 +13,112 @@ Page({
     timeList: [],
     maskStatus: 'hide'
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function (options) {
-    showView: (options.showView == "true" ? true : false)
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true,
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true,
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true,
-          })
-        }
-      })
-    }
-    // console.log(this.globalData.auth);
+
+  onLoad: function(options) {
+
+    //获取用户信息
+    this.getUserInfo()
+
+    console.log('获取列表接口')
     // this.getTimeData();
   },
 
-  onShow:function(){
-    this.getTimeData();
-  },
+  onShow: function() {},
 
-  getUserInfo: function (e) {
+  onGotUserInfo: function(e) {
+    this.getUserInfo()
     app.globalData.userInfo = e.detail.userInfo
+
     this.setData({
-      userInfo: e.detail.userInfo,
+      userInfo: app.globalData.userInfo,
       hasUserInfo: true
     })
   },
 
+  isLogin: function(data) {
+    var auth = wx.getStorageSync('auth')
+    if (auth) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+
+  checkAuth: function() {
+    let _this = this
+    var data = {
+      'auth': wx.getStorageSync('auth')
+    }
+    app.postRequest(CONFIG.ACTION.USER.CHECK_AUTH, data, function(res) {
+      if (res.code != 0) {
+        //登录
+        _this.login()
+      } else {
+        _this.getTimeData()
+      }
+    })
+  },
+
+  login: function() {
+    // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+    let _this = this
+    wx.login({
+      success: LoginRes => {
+        console.log('asdafsd')
+        console.log(_this.data.hasUserInfo);
+        console.log(_this.isLogin())
+        wx.getUserInfo({
+          success: res => {
+            // 可以将 res 发送给后台解码出 unionId
+            app.globalData.userInfo = res.userInfo
+
+            var data = {
+              'code': LoginRes.code,
+              'iv': res.iv,
+              'encryptedData': res.encryptedData
+            }
+
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+            app.postRequest(CONFIG.ACTION.USER.LOGIN, data, function(res) {
+              wx.removeStorageSync('auth');
+              wx.setStorageSync('auth', res.data.auth);
+              _this.getTimeData()
+            })
+
+            this.setData({
+              userInfo: res.userInfo,
+              hasUserInfo: true
+            })
+          }
+        })
+      }
+    })
+  },
+
+  getUserInfo: function() {
+    let _this = this
+    // 获取用户信息
+    wx.getSetting({
+      success: settingRes => {
+        console.log(settingRes.authSetting['scope.userInfo'])
+        if (settingRes.authSetting['scope.userInfo']) {
+          if (_this.isLogin() == false) {
+            console.log('登录')
+            _this.login()
+          } else {
+            _this.checkAuth()
+          }
+
+          this.setData({
+            hasUserInfo: true
+          })
+        }
+      }
+    })
+  },
+
   //选择器
-  bindPickerChange: function (e) {
+  bindPickerChange: function(e) {
     let _type = 1; //默认倒计时
     if (e.detail.value == 1) {
       _type = 2; //累计日
@@ -81,12 +135,14 @@ Page({
   },
 
   //获取列表
-  getTimeData: function () {
-    let _this = this;
-    app.postRequest(CONFIG.ACTION.TIME.LIST, {}, function (res) {
-      _this.setData({
-        timeList: res.data.list
+  getTimeData: function() {
+    if (wx.getStorageSync('auth')) {
+      let _this = this;
+      app.postRequest(CONFIG.ACTION.TIME.LIST, {}, function(res) {
+        _this.setData({
+          timeList: res.data.list
+        })
       })
-    })
+    }
   },
 })

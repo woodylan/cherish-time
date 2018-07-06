@@ -1,7 +1,15 @@
 <!--index.wxml-->
-<view wx:if="{{isGetUserInfo == false }}">
-  <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+<view class="authorization" wx:if="{{hasUserInfo === false }}">
+  <view class="authorization__box">
+    <view class="authorization__ques">惜时光申请获得你的信息</view>
+    <view class="authorization__tip">公开信息包含昵称、头像等</view>
+    <button loading="{{powerLoading}}" class="authorization__btn" bindgetuserinfo="onGotUserInfo" lang="zh_CN" open-type="getUserInfo">
+      允许
+    </button>
+    <view loading="{{powerLoading}}" class="authorization__btn-no">不允许</view>
+  </view>
 </view>
+
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <view wx:for="{{ timeList }}">
