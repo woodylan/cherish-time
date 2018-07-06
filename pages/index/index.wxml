@@ -1,11 +1,11 @@
 <!--index.wxml-->
 <wxs module="m1">
-var formatDataToString = function(val) {
-  var reg = getRegExp('(.{4})(.{2})(.{2})');
-  return val.toString().replace(reg, '$1-$2-$3');
-}
+  var formatDataToString = function(val) {
+    var reg = getRegExp('(.{4})(.{2})(.{2})');
+    return val.toString().replace(reg, '$1-$2-$3');
+  }
 
-module.exports.formatDataToString = formatDataToString;
+  module.exports.formatDataToString = formatDataToString;
 </wxs>
 
 <view class="authorization" wx:if="{{hasUserInfo === false }}">
@@ -22,7 +22,7 @@ module.exports.formatDataToString = formatDataToString;
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <view wx:for="{{ timeList }}">
-      <view class="block" style="background : {{item.color}}" bindtap="showMask">
+      <view class="block" data-item="{{item}}" style="background : {{item.color}}" bindtap="showMask">
         <view class='blockLeft'>
           <view class="blockTitle">{{item.name}}</view>
           <view class="blockTime">{{ item.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(item.date)}}</view>
@@ -47,5 +47,10 @@ module.exports.formatDataToString = formatDataToString;
   </picker>
 </view>
 
-<wxc-mask status="{{maskStatus}}" background-color="#03a9f4" opacity="1">
-</wxc-mask>
+<view id="fullScreen" class="viewHide{{isShowMask?'ViewShow':''}}">
+  <view class="content" style="background-color:{{currentMaskColor}}">
+    <view class='full-icon-close' bindtap="hideMask" value='false'>X</view>
+  </view>
+  <!-- 这里开始才是真正的内容 -->
+  <view class="dialog"></view>
+</view>

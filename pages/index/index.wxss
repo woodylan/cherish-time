@@ -147,3 +147,39 @@
     color:#1d8ce0;
     text-align:center
 }
+
+#fullScreen {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+}
+#fullScreen .content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* background-color: #03a9f4; */
+    /* opacity: 0.9; */
+}
+
+.viewHide{
+    display: none;
+}
+
+.ViewShow{
+    display: block;
+}
+
+.full-icon-close{
+  font-size: 50rpx;
+  color: #fff;
+  content: "\2716";
+  float: right;
+  margin: 15rpx 20rpx;
+}
+
+

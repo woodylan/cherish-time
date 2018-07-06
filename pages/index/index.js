@@ -11,15 +11,15 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     array: ['倒数日', '累计日'],
     timeList: [],
-    maskStatus: 'hide'
+    isShowMask: false,
+    currentMaskColor: "", //遮罩层颜色
+    currentMaskItem: {} //当前遮罩层数据
   },
 
   onLoad: function(options) {
     //获取用户信息
     this.getUserInfo()
   },
-
-  onShow: function() {},
 
   onGotUserInfo: function(e) {
     this.getUserInfo()
@@ -121,9 +121,33 @@ Page({
     });
   },
 
-  showMask() {
+  //显示遮罩层
+  showMask: function(event) {
+    console.log(event.currentTarget.dataset.item);
+
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: event.currentTarget.dataset.item.color,
+    })
+
     this.setData({
+      currentMaskItem: event.currentTarget.dataset.item,
+      currentMaskColor: event.currentTarget.dataset.item.color,
+      isShowMask: (!this.data.isShowMask),
       maskStatus: 'show'
+    })
+  },
+
+  //隐藏遮罩层
+  hideMask: function(event) {
+    this.setData({
+      maskStatus: 'hide',
+      isShowMask: false,
+    })
+
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#ffffff',
     })
   },
 
@@ -138,4 +162,5 @@ Page({
       })
     }
   },
+
 })
