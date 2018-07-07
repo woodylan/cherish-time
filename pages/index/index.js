@@ -12,8 +12,16 @@ Page({
     array: ['倒数日', '累计日'],
     timeList: [],
     isShowMask: false,
-    currentMaskColor: "", //遮罩层颜色
-    currentMaskItem: {} //当前遮罩层数据
+    currentMaskColor: "#FF6666", //遮罩层颜色
+    currentMaskItem: {
+      color: "#FF6666",
+      createTime: 1530803261,
+      date: 20181001,
+      days: 87,
+      name: "国庆",
+      remark: "旅游去咯",
+      type: 1
+    } //当前遮罩层数据
   },
 
   onLoad: function(options) {

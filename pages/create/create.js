@@ -56,7 +56,7 @@ Page({
       'name': inputData.name,
       'type': inputData.type,
       'date': this.dataToInt(inputData.date),
-      'color': '#03a9f4'
+      'color': inputData.color
     }
     let _this = this;
     app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function(res) {
