@@ -21,7 +21,11 @@ Page({
       name: "国庆",
       remark: "旅游去咯",
       type: 1
-    } //当前遮罩层数据
+    }, //当前遮罩层数据
+    dataCount: 0, //列表数据数量
+    isEnd: false, //是否到底
+    currentPage: 1, //当前页码
+    lastPage: 1, //总共有多少页
   },
 
   onLoad: function(options) {
@@ -58,7 +62,7 @@ Page({
         //登录
         _this.login()
       } else {
-        _this.getTimeData()
+        _this.getTimeData(1)
       }
     })
   },
@@ -83,7 +87,7 @@ Page({
             app.postRequest(CONFIG.ACTION.USER.LOGIN, data, function(res) {
               wx.removeStorageSync('auth');
               wx.setStorageSync('auth', res.data.auth);
-              _this.getTimeData()
+              _this.getTimeData(1)
             })
 
             this.setData({
@@ -160,12 +164,18 @@ Page({
   },
 
   //获取列表
-  getTimeData: function() {
+  getTimeData: function(currentPage) {
     if (wx.getStorageSync('auth')) {
       let _this = this;
-      app.postRequest(CONFIG.ACTION.TIME.LIST, {}, function(res) {
+      var inputData = {
+        "currentPage": currentPage,
+      }
+      app.postRequest(CONFIG.ACTION.TIME.LIST, inputData, function(res) {
         _this.setData({
-          timeList: res.data.list
+          timeList: _this.data.timeList.concat(res.data.list),
+          dataCount: res.data.count,
+          currentPage: res.data.currentPage,
+          lastPage: res.data.lastPage,
         })
       })
     }
@@ -175,6 +185,7 @@ Page({
   _del: function(e) {
     var _this = this;
     var id = e.currentTarget.dataset.id
+    console.log(id)
 
     _this.data.timeList.forEach((val, index, arr) => {
       if (id == val.id) {
@@ -189,9 +200,24 @@ Page({
     var data = {
       'id': id,
     }
-    app.postRequest(CONFIG.ACTION.TIME.DELETE, {}, function(res) {
-
+    app.postRequest(CONFIG.ACTION.TIME.DELETE, data, function(res) {
+      console.log(res)
     })
-  }
+  },
 
+  //下拉刷新
+  onPullDownRefresh: function() {
+    console.log('下拉刷新');
+    this.getTimeData(1),
+      wx.stopPullDownRefresh()
+  },
+
+  //上拉加载
+  onReachBottom() {
+    console.log('上拉加载');
+    console.log(this.data.currentPage);
+    if (!this.loading && this.data.currentPage < this.data.lastPage) {
+      this.getTimeData(this.data.currentPage + 1)
+    }
+  },
 })

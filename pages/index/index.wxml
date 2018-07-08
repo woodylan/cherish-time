@@ -39,6 +39,7 @@
       </view>
     </slide-delete>
   </scroll-view>
+  <wxc-loadmore is-end="{{isEnd}}"></wxc-loadmore>
 </view>
 
 <view class="float-button">

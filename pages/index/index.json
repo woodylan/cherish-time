@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "wxc-mask": "../../dist/packages/@minui/wxc-mask/dist/index",
+    "wxc-loadmore": "../../dist/packages/@minui/wxc-loadmore/dist/index",
     "slide-delete": "../slide-delete/slide-delete"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
 }
