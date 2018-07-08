@@ -61,7 +61,7 @@ Page({
     let _this = this;
     app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function(res) {
       console.log(res)
-      wx.redirectTo({ url:'/pages/index/index'})
+      wx.navigateTo({ url:'/pages/index/index'})
       // _this.setData({
       //   timeList: res.data.list
       // })

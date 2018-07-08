@@ -1,0 +1,9 @@
+<view class='slide'>
+    <view class='slide-cont' style="transform: translateX({{offset}}rpx)" bind:touchstart="handstart" bind:touchmove="handmove" bind:touchend="handend">
+        <slot></slot>
+    </view>
+    <view class='slide-btn'>
+        <view class='del-class' id="del" catchtap='_del'>删除</view>
+        <view wx:if="{{like}}" class='like-class' id="like" catchtap='_like'>编辑</view>
+    </view>
+</view>

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "wxc-mask": "../../dist/packages/@minui/wxc-mask/dist/index"
+    "wxc-mask": "../../dist/packages/@minui/wxc-mask/dist/index",
+    "slide-delete": "../slide-delete/slide-delete"
   }
 }

@@ -2,8 +2,8 @@
 
 .block {
   border-radius: 15rpx;
-  margin: 25rpx;
   height: 190rpx;
+  width: 100%;
 }
 
 .blockTitle {

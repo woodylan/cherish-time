@@ -21,7 +21,7 @@
 
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <view wx:for="{{ timeList }}">
+    <slide-delete wx:for="{{ timeList }}" del-class="list-del" like="true" like-class="list-like" binddelete="_del" bindlike="_like" data-id="{{item.id}}">
       <view class="block" data-item="{{item}}" style="background : {{item.color}}" bindtap="showMask">
         <view class='blockLeft'>
           <view class="blockTitle">{{item.name}}</view>
@@ -37,7 +37,7 @@
           <view class="blockButton">查看详情</view>
         </view>
       </view>
-    </view>
+    </slide-delete>
   </scroll-view>
 </view>
 
@@ -51,14 +51,14 @@
   <view class="content" style="background-color:{{currentMaskColor}}">
     <view class='full-icon-close' bindtap="hideMask" value='false'>X</view>
 
-   <view id="timeType">{{ currentMaskItem.type==1? '倒数日':'累计日' }}</view>
-   <view id="timeName">{{ currentMaskItem.name }}</view>
+    <view id="timeType">{{ currentMaskItem.type==1? '倒数日':'累计日' }}</view>
+    <view id="timeName">{{ currentMaskItem.name }}</view>
 
-   <view id="timeName">{{ currentMaskItem.days }}</view>
+    <view id="timeName">{{ currentMaskItem.days }}</view>
 
-   <view id="timeName">{{ currentMaskItem.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(currentMaskItem.date)}}</view>
+    <view id="timeName">{{ currentMaskItem.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(currentMaskItem.date)}}</view>
 
-   <view id="timeName">{{ currentMaskItem.remark }}</view>
+    <view id="timeName">{{ currentMaskItem.remark }}</view>
   </view>
   <!-- 这里开始才是真正的内容 -->
   {{currentMaskItem.type}}
