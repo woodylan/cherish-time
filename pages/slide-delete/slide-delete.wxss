@@ -17,11 +17,13 @@
     flex-direction: row-reverse;
 }
 .slide-btn view{
-    width: 140rpx;
+    width: 132rpx;
     height: 100%;
     display: flex; 
     align-items: center;
     justify-content: center;
+    border-radius: 15rpx;
+    margin: 0rpx 5rpx;
 }
 .slide-btn view:nth-child(1){
     background: #ff4549;

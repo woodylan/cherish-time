@@ -45,7 +45,7 @@ Page({
     });
   },
 
-  dataToInt:function(val){
+  dataToInt: function(val) {
     return val.replace(/-/g, '');
   },
 
@@ -61,7 +61,9 @@ Page({
     let _this = this;
     app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function(res) {
       console.log(res)
-      wx.navigateTo({ url:'/pages/index/index'})
+      wx.navigateBack({
+        delta: 1
+      })
       // _this.setData({
       //   timeList: res.data.list
       // })

@@ -171,4 +171,27 @@ Page({
     }
   },
 
+  //删除
+  _del: function(e) {
+    var _this = this;
+    var id = e.currentTarget.dataset.id
+
+    _this.data.timeList.forEach((val, index, arr) => {
+      if (id == val.id) {
+        arr.splice(index, 1)
+      }
+    });
+
+    _this.setData({
+      timeList: _this.data.timeList
+    })
+
+    var data = {
+      'id': id,
+    }
+    app.postRequest(CONFIG.ACTION.TIME.DELETE, {}, function(res) {
+
+    })
+  }
+
 })
