@@ -5,5 +5,6 @@
     "slide-delete": "../slide-delete/slide-delete"
   },
   "enablePullDownRefresh": true,
-  "onReachBottomDistance": 50
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark"
 }

@@ -62,7 +62,7 @@ Page({
         //登录
         _this.login()
       } else {
-        _this.getTimeData(1)
+        _this.getTimeData()
       }
     })
   },
@@ -87,7 +87,7 @@ Page({
             app.postRequest(CONFIG.ACTION.USER.LOGIN, data, function(res) {
               wx.removeStorageSync('auth');
               wx.setStorageSync('auth', res.data.auth);
-              _this.getTimeData(1)
+              _this.getTimeData()
             })
 
             this.setData({
@@ -164,21 +164,28 @@ Page({
   },
 
   //获取列表
-  getTimeData: function(currentPage) {
-    if (wx.getStorageSync('auth')) {
-      let _this = this;
-      var inputData = {
-        "currentPage": currentPage,
-      }
-      app.postRequest(CONFIG.ACTION.TIME.LIST, inputData, function(res) {
-        _this.setData({
-          timeList: _this.data.timeList.concat(res.data.list),
-          dataCount: res.data.count,
-          currentPage: res.data.currentPage,
-          lastPage: res.data.lastPage,
-        })
-      })
+  getTimeData: function(currentPage = 1, isRefresh = false) {
+    let _this = this;
+
+    var inputData = {
+      "currentPage": currentPage,
     }
+    app.postRequest(CONFIG.ACTION.TIME.LIST, inputData, function(res) {
+      var timeList = []
+      if (isRefresh === true) {
+        timeList = _this.data.timeList.concat(res.data.list);
+      } else {
+        timeList = res.data.list
+      }
+
+      _this.setData({
+        timeList: timeList,
+        dataCount: res.data.count,
+        currentPage: res.data.currentPage,
+        lastPage: res.data.lastPage,
+        isEnd: res.data.currentPage == res.data.lastPage
+      })
+    })
   },
 
   //删除
@@ -207,17 +214,22 @@ Page({
 
   //下拉刷新
   onPullDownRefresh: function() {
+    //显示顶部刷新图标
+    wx.showNavigationBarLoading();
     console.log('下拉刷新');
-    this.getTimeData(1),
-      wx.stopPullDownRefresh()
+    this.getTimeData();
+
+    //隐藏导航栏加载框
+    wx.hideNavigationBarLoading();
+    wx.stopPullDownRefresh()
   },
 
   //上拉加载
   onReachBottom() {
     console.log('上拉加载');
     console.log(this.data.currentPage);
-    if (!this.loading && this.data.currentPage < this.data.lastPage) {
-      this.getTimeData(this.data.currentPage + 1)
+    if (this.data.currentPage < this.data.lastPage) {
+      this.getTimeData(this.data.currentPage + 1, true)
     }
   },
 })
