@@ -9,7 +9,6 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    array: ['倒数日', '累计日'],
     timeList: [],
     isShowMask: false,
     currentMaskColor: "#FF6666", //遮罩层颜色
@@ -29,8 +28,12 @@ Page({
   },
 
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中',
+    });
     //获取用户信息
     this.getUserInfo()
+    wx.hideLoading();
   },
 
   onGotUserInfo: function(e) {
@@ -123,11 +126,9 @@ Page({
   },
 
   //选择器
-  bindPickerChange: function(e) {
-    let _type = 1; //默认倒计时
-    if (e.detail.value == 1) {
-      _type = 2; //累计日
-    }
+  bindPickerChange: function (event) {
+    let _type = event.currentTarget.dataset.type; //默认倒计时
+    console.log(_type)
     wx.navigateTo({
       url: '/pages/create/create?type=' + _type
     });
@@ -231,5 +232,14 @@ Page({
     if (this.data.currentPage < this.data.lastPage) {
       this.getTimeData(this.data.currentPage + 1, true)
     }
+  },
+
+  showPopup() {
+    let popupComponent = this.selectComponent('.J_Popup');
+    popupComponent && popupComponent.show();
+  },
+  hidePopup() {
+    let popupComponent = this.selectComponent('.J_Popup');
+    popupComponent && popupComponent.hide();
   },
 })
