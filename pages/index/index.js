@@ -25,6 +25,7 @@ Page({
     isEnd: false, //是否到底
     currentPage: 1, //当前页码
     lastPage: 1, //总共有多少页
+    slideItemId: '',
   },
 
   onLoad: function(options) {
@@ -126,7 +127,7 @@ Page({
   },
 
   //选择器
-  bindPickerChange: function (event) {
+  bindPickerChange: function(event) {
     let _type = event.currentTarget.dataset.type; //默认倒计时
     console.log(_type)
     wx.navigateTo({
@@ -161,6 +162,14 @@ Page({
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#ffffff',
+    })
+  },
+
+  getComponentsEvent: function(eventDetail) {
+    console.log(eventDetail.detail.itemId)
+
+    this.setData({
+      slideItemId: eventDetail.detail.itemId,
     })
   },
 
