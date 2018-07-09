@@ -3,8 +3,7 @@
     "wxc-mask": "../../dist/packages/@minui/wxc-mask/dist/index",
     "wxc-loadmore": "../../dist/packages/@minui/wxc-loadmore/dist/index",
     "wxc-popup": "../../dist/packages/@minui/wxc-popup/dist/index",
-    "wxc-button": "../../dist/packages/@minui/wxc-button/dist/index",
-    "slide-delete": "../slide-delete/slide-delete"
+    "wxc-button": "../../dist/packages/@minui/wxc-button/dist/index"
   },
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 50,
