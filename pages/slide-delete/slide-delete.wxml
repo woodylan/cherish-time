@@ -1,6 +1,5 @@
 <view class='slide'>
-<button bindtap="onTap">点击1{{slideItemId}}</button>
-    <view class='slide-cont' style="transform: translateX({{slideItemId == itemId ? offset : slideItemId==''?offset:0}}rpx)" bind:touchstart="handstart" bind:touchmove="handmove" bind:touchend="handend">
+        <view class='slide-cont' style="transform: translateX({{offset}}rpx)" bind:touchstart="handstart" bind:touchmove="handmove" bind:touchend="handend">
         <slot></slot>
     </view>
     <view class='slide-btn'>

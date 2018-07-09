@@ -21,7 +21,7 @@
 
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <slide-delete wx:for="{{ timeList }}" del-class="list-del" like="true" like-class="list-like" binddelete="_del" bindlike="_like" data-id="{{item.id}}" itemId="{{item.id}}"  slideItemId="{{slideItemId}}" bind:sendEvent="getComponentsEvent">
+    <slide-delete wx:for="{{ timeList }}" del-class="list-del" like="true" like-class="list-like" binddelete="_del" bindlike="_like" data-id="{{item.id}}">
       <view class="block" data-item="{{item}}" style="background : {{item.color}}" bindtap="showMask">
         <view class='blockLeft'>
           <view class="blockTitle">{{item.name}}</view>

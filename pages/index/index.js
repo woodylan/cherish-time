@@ -25,7 +25,6 @@ Page({
     isEnd: false, //是否到底
     currentPage: 1, //当前页码
     lastPage: 1, //总共有多少页
-    slideItemId: '',
   },
 
   onLoad: function(options) {
@@ -162,14 +161,6 @@ Page({
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#ffffff',
-    })
-  },
-
-  getComponentsEvent: function(eventDetail) {
-    console.log(eventDetail.detail.itemId)
-
-    this.setData({
-      slideItemId: eventDetail.detail.itemId,
     })
   },
 
