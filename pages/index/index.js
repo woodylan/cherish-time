@@ -3,6 +3,9 @@
 const app = getApp()
 var CONFIG = require("../../config");
 
+const winW = wx.getSystemInfoSync().screenWidth; // 屏幕宽度
+const ratio = 750 / winW //px && rpx 单位转换 (乘于 这个属性是 px 转换成 rpx)
+
 Page({
   data: {
     motto: 'Hello World',
@@ -25,6 +28,14 @@ Page({
     isEnd: false, //是否到底
     currentPage: 1, //当前页码
     lastPage: 1, //总共有多少页
+
+    offset: 0, // 内容区域滑动的位移
+    start: 0, // 手指触屏的开始位置
+    move: 0, // 手指移动的位置
+    btnWidth: 280, // 按钮的宽度 
+    lock: false, // 限制模块右滑
+    now: 0, //为标记滑动位置设置的变量
+    slideList: [], //编辑每个卡片的偏移量
   },
 
   onLoad: function(options) {
@@ -186,6 +197,8 @@ Page({
         lastPage: res.data.lastPage,
         isEnd: res.data.currentPage == res.data.lastPage
       })
+
+      _this.initdata(timeList)
     })
   },
 
@@ -193,7 +206,6 @@ Page({
   _del: function(e) {
     var _this = this;
     var id = e.currentTarget.dataset.id
-    console.log(id)
 
     _this.data.timeList.forEach((val, index, arr) => {
       if (id == val.id) {
@@ -204,6 +216,8 @@ Page({
     _this.setData({
       timeList: _this.data.timeList
     })
+
+    this.initdata(_this.data.timeList)
 
     var data = {
       'id': id,
@@ -234,6 +248,86 @@ Page({
     }
   },
 
+  //修改偏移量数组
+  initdata: function(timeList) {
+    var slideList = []
+    for (var i = 0; i < timeList.length; i++) {
+      slideList[i] = 0
+    }
+    this.setData({
+      slideList: slideList
+    })
+  },
+
+  //修改指定元素的偏移量
+  fitSlideListData: function(index, offset) {
+    var slideList = this.data.slideList
+    for (var i = 0; i < slideList.length; i++) {
+      if (i == index) {
+        slideList[i] = offset
+      } else {
+        slideList[i] = 0
+      }
+    }
+
+    this.setData({
+      slideList: slideList
+    })
+  },
+
+  // 手指开始滑动
+  handstart(e) {
+    var that = this;
+    that.data.start = e.changedTouches[0].clientX
+  },
+  // 手指滑动过程
+  handmove(e) {
+    var that = this;
+    var index = e.target.dataset.index
+    var offset = that.data.slideList[index]
+    var start = that.data.start
+    var width = that.data.btnWidth
+    var lock = that.data.lock
+    var move = that.data.move = e.changedTouches[0].clientX
+    if (move - start < 0 || lock) {
+      if (move - start < 0) {
+        that.data.now++
+      } else {
+        that.data.now = 0
+      }
+
+      var offset = that.data.now == 0 ? (move - start) * ratio : (move - start) * ratio - width;
+      that.fitSlideListData(index, offset)
+      that.setData({
+        start: start,
+        move: move,
+      })
+    }
+  },
+
+  // 手指结束滑动，然后抬起
+  handend(e) {
+    var that = this;
+    var width = that.data.btnWidth
+    var index = e.target.dataset.index
+    var offset = that.data.slideList[index]
+    if (offset < 0) {
+      if (that.properties.like) {
+        width = 280
+      }
+
+      that.fitSlideListData(index, -width)
+      that.setData({
+        btnWidth: width,
+      })
+      that.data.lock = true
+    } else {
+      that.fitSlideListData(index, 0)
+      that.data.lock = false
+      that.data.now = 0
+    }
+  },
+
   showPopup() {
     let popupComponent = this.selectComponent('.J_Popup');
     popupComponent && popupComponent.show();
@@ -242,4 +336,6 @@ Page({
     let popupComponent = this.selectComponent('.J_Popup');
     popupComponent && popupComponent.hide();
   },
+
+
 })

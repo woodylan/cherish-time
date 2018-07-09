@@ -21,23 +21,31 @@
 
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <slide-delete wx:for="{{ timeList }}" del-class="list-del" like="true" like-class="list-like" binddelete="_del" bindlike="_like" data-id="{{item.id}}">
-      <view class="block" data-item="{{item}}" style="background : {{item.color}}" bindtap="showMask">
-        <view class='blockLeft'>
-          <view class="blockTitle">{{item.name}}</view>
-          <view class="blockTime">{{ item.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(item.date)}}</view>
-        </view>
 
-        <view class='blockRight'>
-          <view id="hadPassLabel">{{ item.type == 1? '剩余':'已过' }}</view>
-          <view class='daysDiv'>
-            <view id="days">{{item.days}}</view>
-            <view id="dayLabel" class="blockDayLable">天</view>
+
+    <view class='slide' wx:for="{{ timeList }}" wx:key="index">
+      <view class='slide-cont' style="transform: translateX({{slideList[index]}}rpx)" bind:touchstart="handstart" bind:touchmove="handmove" bind:touchend="handend">
+        <view class="block" data-item="{{item}}" data-index="{{index}}" style="background : {{item.color}}" bindtap="showMask">
+          <view class='blockLeft'>
+            <view class="blockTitle">{{item.name}}</view>
+            <view class="blockTime">{{ item.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(item.date)}}</view>
           </view>
-          <view class="blockButton">查看详情</view>
+
+          <view class='blockRight'>
+            <view id="hadPassLabel">{{ item.type == 1? '剩余':'已过' }}</view>
+            <view class='daysDiv'>
+              <view id="days">{{item.days}}</view>
+              <view id="dayLabel" class="blockDayLable">天</view>
+            </view>
+            <view class="blockButton">查看详情</view>
+          </view>
         </view>
       </view>
-    </slide-delete>
+      <view class='slide-btn'>
+        <view class='del-class' data-id="{{item.id}}" catchtap='_del'>删除</view>
+        <view class='like-class' data-id="{{item.id}}" catchtap='_like'>编辑</view>
+      </view>
+    </view>
   </scroll-view>
   <wxc-loadmore is-end="{{isEnd}}"></wxc-loadmore>
 </view>
