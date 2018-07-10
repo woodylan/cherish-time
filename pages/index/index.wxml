@@ -19,6 +19,8 @@
   </view>
 </view>
 
+<wxc-abnor wx:if="{{timeList == ''}}" type="DATA" image="{{image}}" title="你还没添加数据哦" tip="点击下方按钮添加吧" button="点我添加" bind:abnortap="showPopup"></wxc-abnor>
+
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
 
@@ -47,7 +49,7 @@
       </view>
     </view>
   </scroll-view>
-  <wxc-loadmore is-end="{{isEnd}}"></wxc-loadmore>
+  <wxc-loadmore wx:if="{{timeList.length > 6}}" is-end="{{isEnd}}" text="到底了～"></wxc-loadmore>
 </view>
 
 <view class="float-button" bindtap="showPopup">

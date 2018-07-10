@@ -18,7 +18,7 @@
     <wxc-input type="text" mode="wrapped" placeholder="备注" bind:input="onInputRemark"></wxc-input>
   </view>
 
-  <view class="input-wrap" wx:for="{{radioItems}}" class="circleGroup">
+  <view class="input-wrap" wx:for="{{radioItems}}" wx:key="{{index}}" class="circleGroup">
     <view class="selectCircle" bindtap="selectRadio" style="background-color:{{item}}" data-text="{{item}}">
       <block wx:if="{{item == radioSelect}}">✓</block>
     </view>

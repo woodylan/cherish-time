@@ -3,7 +3,8 @@
     "wxc-mask": "../../dist/packages/@minui/wxc-mask/dist/index",
     "wxc-loadmore": "../../dist/packages/@minui/wxc-loadmore/dist/index",
     "wxc-popup": "../../dist/packages/@minui/wxc-popup/dist/index",
-    "wxc-button": "../../dist/packages/@minui/wxc-button/dist/index"
+    "wxc-button": "../../dist/packages/@minui/wxc-button/dist/index",
+    "wxc-abnor": "../../dist/packages/@minui/wxc-abnor/dist/index"
   },
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 50,
