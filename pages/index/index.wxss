@@ -102,7 +102,7 @@
   bottom: 50rpx;
   right: 50rpx;
   position: fixed;
-  background-color: "#e84e40"
+  background-color: "#e84e40";
 }
 
 .float-button-icon {
@@ -121,9 +121,9 @@
 
 .popup__content {
   width: 100%;
-  height: 300rpx;
-  line-height: 300rpx;
-  background: #ffffff;
+  height: 420rpx;
+  line-height: 100rpx;
+  background: #fff;
   text-align: center;
   background: transparent;
 }
@@ -188,12 +188,15 @@
   display: block;
 }
 
-.full-icon-close {
-  font-size: 50rpx;
+.full-close {
   color: #fff;
-  content: "\2716";
   float: right;
-  margin: 15rpx 20rpx;
+  margin: 15rpx 30rpx;
+}
+
+.full-close image {
+  width: 50rpx;
+  height: 50rpx;
 }
 
 #fullScreen #timeType {
@@ -211,45 +214,49 @@
   text-align: center;
 }
 
+.slide {
+  width: 94%;
+  height: 190rpx;
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  background: #fff;
+  margin: 25rpx;
+}
 
-.slide{
-    width: 94%;
-    height: 190rpx;
-    position: relative;
-    display: flex;
-    flex-direction: row-reverse;
-    background: #ffffff;
-    margin: 25rpx; 
+.slide-btn {
+  width: 100%;
+  font-size: 28rpx;
+  color: #fff;
+  background: #fff;
+  display: flex;
+  flex-direction: row-reverse;
 }
-.slide-btn{
-    width: 100%;
-    font-size: 28rpx;
-    color: #ffffff;
-    background: #ffffff;
-    display: flex; 
-    flex-direction: row-reverse;
+
+.slide-btn view {
+  width: 132rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15rpx;
+  margin: 0rpx 5rpx;
 }
-.slide-btn view{
-    width: 132rpx;
-    height: 100%;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    border-radius: 15rpx;
-    margin: 0rpx 5rpx;
+
+.slide-btn view:nth-child(1) {
+  background: #ff4549;
 }
-.slide-btn view:nth-child(1){
-    background: #ff4549;
+
+.slide-btn view:nth-child(2) {
+  background: #ff8407;
 }
-.slide-btn view:nth-child(2){
-    background: #FF8407;
-}
-.slide-cont{
-    width: 100%;
-    min-height: 200rpx;
-    display: flex;
-    background: #ffffff;
-    position: absolute;
-    z-index: 1;
-    transition: all 200ms ease-out;
+
+.slide-cont {
+  width: 100%;
+  min-height: 200rpx;
+  display: flex;
+  background: #fff;
+  position: absolute;
+  z-index: 1;
+  transition: all 200ms ease-out;
 }

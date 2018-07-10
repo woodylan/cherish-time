@@ -19,12 +19,10 @@
   </view>
 </view>
 
-<wxc-abnor wx:if="{{timeList == ''}}" type="DATA" image="{{image}}" title="你还没添加数据哦" tip="点击下方按钮添加吧" button="点我添加" bind:abnortap="showPopup"></wxc-abnor>
+<wxc-abnor wx:if="{{timeList == ''}}" type="DATA" image="{{image}}" title="你还没添加数据哦" tip="点击右下方按钮添加吧"></wxc-abnor>
 
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-
-
     <view class='slide' wx:for="{{ timeList }}" wx:key="index">
       <view class='slide-cont' style="transform: translateX({{slideList[index]}}rpx)" bind:touchstart="handstart" bind:touchmove="handmove" bind:touchend="handend">
         <view class="block" data-item="{{item}}" data-index="{{index}}" style="background : {{item.color}}" bindtap="showMask">
@@ -66,7 +64,7 @@
 
 <view id="fullScreen" class="viewHide{{isShowMask?'ViewShow':''}}">
   <view class="content" style="background-color:{{currentMaskColor}}">
-    <view class='full-icon-close' bindtap="hideMask" value='false'>X</view>
+    <view class='full-close' bindtap="hideMask" value='false'><image src="/images/icon-close.png"></image></view>
 
     <view id="timeType">{{ currentMaskItem.type==1? '倒数日':'累计日' }}</view>
     <view id="timeName">{{ currentMaskItem.name }}</view>
