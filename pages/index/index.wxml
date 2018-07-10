@@ -19,7 +19,7 @@
   </view>
 </view>
 
-<wxc-abnor wx:if="{{timeList == ''}}" type="DATA" image="{{image}}" title="你还没添加数据哦" tip="点击右下方按钮添加吧"></wxc-abnor>
+<wxc-abnor wx:if="{{isShowNotData}}" type="DATA" image="{{image}}" title="你还没添加数据哦" tip="点击右下方按钮添加吧"></wxc-abnor>
 
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">

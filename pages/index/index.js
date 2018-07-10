@@ -8,7 +8,7 @@ const ratio = 750 / winW //px && rpx 单位转换 (乘于 这个属性是 px 转
 
 Page({
   data: {
-    motto: 'Hello World',
+    isShowNotData: false, //是否显示没有数据
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -195,8 +195,11 @@ Page({
         dataCount: res.data.count,
         currentPage: res.data.currentPage,
         lastPage: res.data.lastPage,
-        isEnd: res.data.currentPage == res.data.lastPage
+        isEnd: res.data.currentPage == res.data.lastPage,
       })
+
+      //是否显示空数据流
+      _this._showNotData(timeList)
 
       _this.initdata(timeList)
     })
@@ -218,6 +221,7 @@ Page({
     })
 
     this.initdata(_this.data.timeList)
+    this._showNotData(_this.data.timeList)
 
     var data = {
       'id': id,
@@ -335,6 +339,18 @@ Page({
   hidePopup() {
     let popupComponent = this.selectComponent('.J_Popup');
     popupComponent && popupComponent.hide();
+  },
+
+  //控制显示空数据流
+  _showNotData: function(timeList) {
+    var isShowNotData = false;
+    if (timeList.length == 0) {
+      isShowNotData = true
+    }
+
+    this.setData({
+      isShowNotData: isShowNotData
+    })
   },
 
 
