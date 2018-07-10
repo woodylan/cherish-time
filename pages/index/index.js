@@ -14,9 +14,9 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     timeList: [],
     isShowMask: false,
-    currentMaskColor: "#FF6666", //遮罩层颜色
+    currentMaskColor: ['#fc9e9a', '#fed89c'], //遮罩层颜色
     currentMaskItem: {
-      color: "#FF6666",
+      color: ['#fc9e9a', '#fed89c'],
       createTime: 1530803261,
       date: 20181001,
       days: 87,
@@ -170,7 +170,7 @@ Page({
 
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
-      backgroundColor: event.currentTarget.dataset.item.color,
+      backgroundColor: event.currentTarget.dataset.item.color[0],
     })
 
     this.setData({
