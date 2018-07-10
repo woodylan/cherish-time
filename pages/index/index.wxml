@@ -8,7 +8,7 @@
   module.exports.formatDataToString = formatDataToString;
 </wxs>
 
-<view class="authorization" wx:if="{{hasUserInfo === false }}">
+<view class="authorization" wx:if="{{isShowAuthorization}}">
   <view class="authorization__box">
     <view class="authorization__ques">惜时光申请获得你的信息</view>
     <view class="authorization__tip">公开信息包含昵称、头像等</view>

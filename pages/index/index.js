@@ -10,7 +10,7 @@ Page({
   data: {
     isShowNotData: false, //是否显示没有数据
     userInfo: {},
-    hasUserInfo: false,
+    isShowAuthorization: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     timeList: [],
     isShowMask: false,
@@ -53,7 +53,7 @@ Page({
 
     this.setData({
       userInfo: app.globalData.userInfo,
-      hasUserInfo: true
+      isShowAuthorization: false
     })
   },
 
@@ -106,9 +106,19 @@ Page({
 
             this.setData({
               userInfo: res.userInfo,
-              hasUserInfo: true
+              isShowAuthorization: false
+            })
+          },
+          fail: res => {
+            this.setData({
+              isShowAuthorization: true
             })
           }
+        })
+      },
+      fail: res => {
+        this.setData({
+          isShowAuthorization: true
         })
       }
     })
@@ -128,10 +138,19 @@ Page({
             _this.checkAuth()
           }
 
-          this.setData({
-            hasUserInfo: true
+          _this.setData({
+            isShowAuthorization: false
+          })
+        } else {
+          _this.setData({
+            isShowAuthorization: true
           })
         }
+      },
+      fail: res => {
+        this.setData({
+          isShowAuthorization: true
+        })
       }
     })
   },
