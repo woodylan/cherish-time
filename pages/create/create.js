@@ -4,8 +4,20 @@ var CONFIG = require("../../config");
 Page({
   data: {
     timeType: 2,
-    radioItems: ['#e84e40', '#548fe9', '#996699', '#993399', '#CCCCCC', '#99CC66', '#FF6666', '#FFCC00', '#CCCC33', '#996633', '#669933'],
-    radioSelect: '#e84e40',
+    colorList: [
+      ['#fc9e9a', '#fed89c'],
+      ['#eda1c1', '#fab2ac'],
+      ['#eaa3fc', '#faa9e0'],
+      ['#89a4c7', '#cdd5e0'],
+      ['#548fe9', '#90aeff'],
+      ['#669933', '#99CC66'],
+      ['#FFCC00', '#f9e75e'],
+      ['#99e1e5', '#b8dff0'],
+      ['#e84e40', '#f67280'],
+      ['#90aeff', '#92e6e6'],
+      ['#8aae92', '#c4e3cb'],
+    ],
+    radioSelect: ['#fc9e9a', '#fed89c'],
     inputName: '',
     inputRemark: ''
   },
@@ -54,9 +66,9 @@ Page({
     var inputData = e.detail.value
     var data = {
       'name': inputData.name,
-      'type': inputData.type,
+      'type': this.data.timeType,
       'date': this.dataToInt(inputData.date),
-      'color': inputData.color
+      'color': this.data.radioSelect
     }
     let _this = this;
     app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function(res) {
@@ -64,9 +76,6 @@ Page({
       wx.navigateBack({
         delta: 1
       })
-      // _this.setData({
-      //   timeList: res.data.list
-      // })
     })
   },
 })

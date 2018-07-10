@@ -6,23 +6,28 @@
 
   <view class="input-wrap">
     <picker mode="date" name="date" value="{{date}}" start="1970-01-01" bindchange="bindDateChange">
-      <wxc-input mode="wrapped" right="{{true}}" title="{{ timeType==1? '目标':'起始' }}日期" placeholder="选择一个日期" value="{{date}}"  disabled></wxc-input>
+      <wxc-input mode="wrapped" right="{{true}}" title="{{ timeType==1? '目标':'起始' }}日期" placeholder="选择一个日期" value="{{date}}" disabled></wxc-input>
     </picker>
   </view>
-
-  <input name="type" value="{{timeType}}" hidden/>
-  <input name="color" value="{{radioSelect}}" hidden/>
 
   <view class="input-wrap">
     <input name="remark" value="{{inputRemark}}" hidden/>
     <wxc-input type="text" mode="wrapped" placeholder="备注" bind:input="onInputRemark"></wxc-input>
   </view>
 
-  <view class="input-wrap" wx:for="{{radioItems}}" wx:key="{{index}}" class="circleGroup">
-    <view class="selectCircle" bindtap="selectRadio" style="background-color:{{item}}" data-text="{{item}}">
-      <block wx:if="{{item == radioSelect}}">✓</block>
+  <view class="input-wrap" wx:for="{{colorList}}" wx:key="{{index}}" class="circleGroup">
+    <view class="selectCircle" bindtap="selectRadio" style="background: linear-gradient(to right, {{item[0]}} , {{item[1]}});" data-text="{{item}}">
+      <block wx:if="{{item[0] == radioSelect[0]}}">✓</block>
     </view>
   </view>
+
+  <!-- <view style="margin-top:120rpx">
+    <view wx:for="{{colorList}}" wx:key="{{index}}" style="margin:20rpx">
+      <view bindtap="selectRadio" style="background: linear-gradient(to right, {{item[0]}} , {{item[1]}});height: 50px" data-text="{{item}}">
+        <block wx:if="{{item == radioSelect}}">✓</block>
+      </view>
+    </view>
+  </view>  -->
 
   <view class="weui-btn-area">
     <button class="weui-btn" type="primary" formType="submit">确定</button>
