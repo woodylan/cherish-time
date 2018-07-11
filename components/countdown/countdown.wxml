@@ -1,7 +1,11 @@
 <!--components/countdown/countdown.wxml-->
 <view class="card">
-  <view class="top" style="background: linear-gradient(to bottom right, {{color[1]}}, {{color[0]}});"></view>
-  <view class="bottom" style="background: linear-gradient(to bottom right, {{color[1]}}, {{color[0]}});"></view>
+  <view class="top" style="background: linear-gradient(to bottom right, {{color[1]}}, {{color[0]}});">
+    <view class="hadPassLabel">{{ timeType == 1? '剩余':'已过' }}</view>
+  </view>
+  <view class="bottom" style="background: linear-gradient(to bottom right, {{color[1]}}, {{color[0]}});">
+    <view class="blockDayLable">天</view>
+  </view>
 </view>
 <view class='cardContent'>
   <view class="circle">
