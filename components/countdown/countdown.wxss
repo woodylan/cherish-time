@@ -1,6 +1,6 @@
 /* components/countdown/countdown.wxss */
 
-.box {
+.card {
   position: relative;
   width: 500rpx;
   height: 400rpx;
@@ -9,11 +9,22 @@
   transform-style: preserve-3d;
 }
 
+.cardContent {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  height: 400rpx;
+  margin-top: 100rpx;
+  transform: perspective(1100rpx) rotateX(0deg);
+  transform-style: preserve-3d;
+}
+
 .top {
   width: 500rpx;
-  height: 400rpx;
+  height: 300rpx;
   border-radius: 20rpx 20rpx 0 0;
-  transform: rotateX(-18deg);
+  transform: rotateX(-14deg) translateZ(2rpx);
 }
 
 .bottom {
@@ -26,9 +37,12 @@
 
 .circle {
   position: absolute;
+  left: 50%;
+  margin-left: -250rpx;
   bottom: 0;
-  width: 100%;
+  width: 500rpx;
   height: 100%;
+  transform: rotateX(0) translateZ(25rpx);
 }
 
 .circle>view {
@@ -55,11 +69,11 @@
   top: 50%;
   width: 100%;
   height: 100%;
-  margin-top: -110rpx;
-  font-size: 160rpx;
-  font-family: farrington;
+  margin-top: -115rpx;
+  font-size: 170rpx;
   color: #fff;
   text-align: center;
+  transform: rotateX(0) translateZ(25rpx);
 }
 
 .font>view {
@@ -67,9 +81,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 110rpx;
-  font-size: 160rpx;
-  font-family: farrington;
+  height: 115rpx;
+  font-size: 170rpx;
   color: #e9e9e9;
   overflow: hidden;
   text-align: center;

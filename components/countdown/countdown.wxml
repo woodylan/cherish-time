@@ -1,7 +1,9 @@
 <!--components/countdown/countdown.wxml-->
-<view class="box">
-    <view class="top" style="background: linear-gradient(to bottom right, {{color[1]}}, {{color[0]}});"></view>
+<view class="card">
+  <view class="top" style="background: linear-gradient(to bottom right, {{color[1]}}, {{color[0]}});"></view>
   <view class="bottom" style="background: linear-gradient(to bottom right, {{color[1]}}, {{color[0]}});"></view>
+</view>
+<view class='cardContent'>
   <view class="circle">
     <view></view>
     <view></view>
