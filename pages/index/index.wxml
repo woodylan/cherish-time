@@ -63,7 +63,8 @@
 </wxc-popup>
 
 <view id="fullScreen" class="viewHide{{isShowMask?'ViewShow':''}}">
-  <view class="content" style="background: linear-gradient({{currentMaskColor[0]}} , {{currentMaskColor[1]}});">
+  <countdown timeName="{{ currentMaskItem.name }}" timeType="currentMaskItem.type" days="{{ currentMaskItem.days }}" color="currentMaskColor" remark="{{ currentMaskItem.remark }}"></countdown>
+  <!-- <view class="content" style="background: linear-gradient({{currentMaskColor[0]}} , {{currentMaskColor[1]}});">
     <view class='full-close' bindtap="hideMask" value='false'><image src="/images/icon-close.png"></image></view>
 
     <view id="timeType">{{ currentMaskItem.type==1? '倒数日':'累计日' }}</view>
@@ -75,7 +76,6 @@
 
     <view id="timeName">{{ currentMaskItem.remark }}</view>
   </view>
-  <!-- 这里开始才是真正的内容 -->
   {{currentMaskItem.type}}
-  <view class="dialog"></view>
+  <view class="dialog"></view> -->
 </view>
