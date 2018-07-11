@@ -1,43 +1,26 @@
 /* components/countdown/countdown.wxss */
-
 .box {
   position: relative;
-  width: 130px;
-  height: 200px;
-  margin: 100px auto;
+  width: 150px;
+  height: 180px;
+  margin: 50px auto;
   transform: perspective(500px) rotateX(0deg);
   transform-style: preserve-3d;
 }
 
 .top {
-  width: 130px;
-  height: 200px;
+  width: 150px;
+  height: 180px;
   border-radius: 10px 10px 0 0;
   transform: rotateX(-14deg);
-  background: -webkit-linear-gradient(left top, #d58070, #cf606d);
-  /* Safari 5.1 - 6.0 */
-  background: -o-linear-gradient(bottom right, #d58070, #cf606d);
-  /* Opera 11.1 - 12.0 */
-  background: -moz-linear-gradient(bottom right, #d58070, #cf606d);
-  /* Firefox 3.6 - 15 */
-  background: linear-gradient(to bottom right, #d58070, #cf606d);
-  /* 标准的语法 */
 }
 
 .bottom {
   position: absolute;
   bottom: 0;
-  width: 130px;
+  width: 150px;
   height: 100px;
   border-radius: 0 0 10px 10px;
-  background: -webkit-linear-gradient(left top, #d58070, #eb7d7c);
-  /* Safari 5.1 - 6.0 */
-  background: -o-linear-gradient(bottom right, #d58070, #eb7d7c);
-  /* Opera 11.1 - 12.0 */
-  background: -moz-linear-gradient(bottom right, #d58070, #eb7d7c);
-  /* Firefox 3.6 - 15 */
-  background: linear-gradient(to bottom right, #d58070, #eb7d7c);
-  /* 标准的语法 */
 }
 
 .circle {
@@ -95,7 +78,6 @@
   width: 250px;
   height: 400px;
   background: linear-gradient(#fff, #cfd9df);
-  /* 标准的语法 */
   margin-top: -120px;
   margin-left: -56px;
   border-radius: 18px;
