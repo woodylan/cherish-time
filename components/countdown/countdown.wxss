@@ -1,26 +1,27 @@
 /* components/countdown/countdown.wxss */
+
 .box {
   position: relative;
-  width: 150px;
-  height: 180px;
-  margin: 50px auto;
-  transform: perspective(500px) rotateX(0deg);
+  width: 500rpx;
+  height: 400rpx;
+  margin: 100rpx auto;
+  transform: perspective(1000rpx) rotateX(0deg);
   transform-style: preserve-3d;
 }
 
 .top {
-  width: 150px;
-  height: 180px;
-  border-radius: 10px 10px 0 0;
-  transform: rotateX(-14deg);
+  width: 500rpx;
+  height: 400rpx;
+  border-radius: 20rpx 20rpx 0 0;
+  transform: rotateX(-18deg);
 }
 
 .bottom {
   position: absolute;
   bottom: 0;
-  width: 150px;
-  height: 100px;
-  border-radius: 0 0 10px 10px;
+  width: 500rpx;
+  height: 200rpx;
+  border-radius: 0 0 20rpx 20rpx;
 }
 
 .circle {
@@ -30,23 +31,23 @@
   height: 100%;
 }
 
-.circle>span {
+.circle>view {
   display: inline-block;
   position: absolute;
   top: 50%;
-  margin-top: -5px;
-  width: 10px;
-  height: 10px;
+  margin-top: -10rpx;
+  width: 20rpx;
+  height: 20rpx;
   border-radius: 50%;
   background: #fff;
 }
 
-.circle>span:nth-of-type(1) {
-  left: -4px;
+.circle>view:nth-of-type(1) {
+  left: -8rpx;
 }
 
-.circle>span:nth-of-type(2) {
-  right: -4px;
+.circle>view:nth-of-type(2) {
+  right: -8rpx;
 }
 
 .font {
@@ -54,8 +55,8 @@
   top: 50%;
   width: 100%;
   height: 100%;
-  margin-top: -45px;
-  font-size: 80px;
+  margin-top: -110rpx;
+  font-size: 160rpx;
   font-family: farrington;
   color: #fff;
   text-align: center;
@@ -66,19 +67,19 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 45px;
-  font-size: 80px;
+  height: 110rpx;
+  font-size: 160rpx;
   font-family: farrington;
-  color: #e5e5e5;
+  color: #e9e9e9;
   overflow: hidden;
   text-align: center;
 }
 
 .footwall {
-  width: 250px;
-  height: 400px;
-  background: linear-gradient(#fff, #cfd9df);
-  margin-top: -120px;
-  margin-left: -56px;
-  border-radius: 18px;
+  width: 600rpx;
+  height: 800rpx;
+  /* background: linear-gradient(#fff, #cfd9df); */
+  background: #fff;
+  margin: -400rpx auto;
+  border-radius: 36rpx;
 }

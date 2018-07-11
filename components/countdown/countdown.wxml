@@ -10,5 +10,5 @@
     <view>{{days}}</view>
     {{days}}
   </view>
-  <view class="footwall"></view>
 </view>
+<view class="footwall"></view>
