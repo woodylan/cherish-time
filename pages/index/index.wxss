@@ -1,15 +1,14 @@
 /**index.wxss**/
-
 .block {
   border-radius: 15rpx;
-  height: 190rpx;
+  height: 200rpx;
   width: 100%;
 }
 
-.blockTitle {
+.timeName {
   color: #fff;
   width: 300rpx;
-  font-size: 40rpx;
+  font-size: 44rpx;
   padding: 20rpx 20rpx 0 30rpx;
 }
 
@@ -33,10 +32,10 @@
   float: right;
 }
 
-.blockTime {
+.dayType {
   color: #fff;
   opacity: 0.5;
-  font-size: 28rpx;
+  font-size: 26rpx;
   padding-left: 32rpx;
   padding-top: 58rpx;
   width: 300rpx;
@@ -45,18 +44,18 @@
 .blockButton {
   color: #fff;
   float: right;
-  font-size: 21rpx;
+  font-size: 22rpx;
   text-align: center;
   margin-top: 5rpx;
   margin-right: 40rpx;
-  width: 100rpx;
+  width: 105rpx;
   border-radius: 15rpx;
   border-style: solid;
   border-width: 1rpx;
   height: 32rpx;
 }
 
-.blockRight #hadPassLabel {
+.blockRight #timeTypeLable {
   float: right;
   text-align: right;
   color: #fff;
@@ -81,7 +80,6 @@
 }
 
 .blockRight #dayLabel {
-  /* float: right; */
   display: inline;
   text-align: right;
   color: #fff;
@@ -209,7 +207,7 @@
 
 .slide {
   width: 94%;
-  height: 190rpx;
+  height: 200rpx;
   position: relative;
   display: flex;
   flex-direction: row-reverse;

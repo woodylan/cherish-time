@@ -27,15 +27,15 @@
       <view class='slide-cont' style="transform: translateX({{slideList[index]}}rpx)" bind:touchstart="handstart" bind:touchmove="handmove" bind:touchend="handend">
         <view class="block" data-item="{{item}}" data-index="{{index}}" style="background: linear-gradient(to right, {{item.color[0]}} , {{item.color[1]}});" bindtap="showMask">
           <view class='blockLeft'>
-            <view class="blockTitle">{{item.name}}</view>
-            <view class="blockTime">{{ item.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(item.date)}}</view>
+            <view class="timeName">{{item.name}}</view>
+            <view class="dayType">{{ item.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(item.date)}}</view>
           </view>
 
           <view class='blockRight'>
-            <view id="hadPassLabel">{{ item.type == 1? '剩余':'已过' }}</view>
+            <view id="timeTypeLable">{{ item.type == 1? '剩余':'已过' }}</view>
             <view class='daysDiv'>
               <view id="days">{{item.days}}</view>
-              <view id="dayLabel" class="blockDayLable">天</view>
+              <view id="dayLabel">天</view>
             </view>
             <view class="blockButton">查看详情</view>
           </view>
