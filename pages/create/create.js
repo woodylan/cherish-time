@@ -74,7 +74,8 @@ Page({
       'name': inputData.name,
       'type': this.data.timeType,
       'date': this.dataToInt(inputData.date),
-      'color': this.data.radioSelect
+      'color': this.data.radioSelect,
+      'remark': this.data.inputRemark
     }
     let _this = this;
     app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function(res) {
