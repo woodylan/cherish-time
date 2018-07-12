@@ -1,4 +1,11 @@
 <!--components/countdown/countdown.wxml-->
+<view class="footwall">
+  <view>{{timeName}}</view>
+  <view>{{remark}}</view>
+  <view style="background: linear-gradient(to right, {{color[0]}}, {{color[1]}});"></view>
+  <view>答案很长，我准备用一生的时间来回答，你准备要听了吗？</view>
+  <view>--林徽因</view>
+</view>
 <view class="card">
   <view class="top" style="background: linear-gradient(50deg, {{color[0]}}, {{color[1]}});">
   </view>
@@ -17,11 +24,4 @@
     <view>{{days}}</view>
     {{days}}
   </view>
-</view>
-<view class="footwall">
-  <view>{{timeName}}</view>
-  <view>{{remark}}</view>
-  <view style="background: linear-gradient(to right, {{color[0]}}, {{color[1]}});"></view>
-  <view>答案很长，我准备用一生的时间来回答，你准备要听了吗？</view>
-  <view>--林徽因</view>
 </view>

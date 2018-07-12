@@ -90,11 +90,16 @@
 }
 
 .footwall {
+  position: absolute;
   width: 650rpx;
   height: 800rpx;
+  top: 50%;
+  left: 50%;
+  margin-left: -325rpx;
+  margin-top: -400rpx;
   /* background: linear-gradient(#fff, #cfd9df); */
   background: #fff;
-  margin: -400rpx auto;
+  /* margin: -100rpx auto; */
   border-radius: 36rpx;
 }
 
@@ -129,11 +134,11 @@
 }
 
 .footwall>view:nth-of-type(5) {
+  position: absolute;
+  bottom: 25rpx;
+  right: 70rpx;
   color: rgba(71, 86, 105, 0.60);
   font-size: 26rpx;
-  padding-top: 25rpx;
-  text-align: right;
-  padding-right: 68rpx;
 }
 
 .bottom>view:nth-of-type(1) {
