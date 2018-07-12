@@ -22,6 +22,6 @@
   <view>{{timeName}}</view>
   <view>{{remark}}</view>
   <view style="background: linear-gradient(to right, {{color[0]}}, {{color[1]}});"></view>
-  <view>衣带渐宽终不悔，为伊消得人憔悴。</view>
-  <view>柳永 蝶恋花</view>
+  <view>答案很长，我准备用一生的时间来回答，你准备要听了吗？</view>
+  <view>--林徽因</view>
 </view>
