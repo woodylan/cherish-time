@@ -68,8 +68,8 @@
   top: 50%;
   width: 100%;
   height: 100%;
-  margin-left: 12rpx;
-  margin-top: -140rpx;
+  margin-left: 18rpx;
+  margin-top: -130rpx;
   font-size: 160rpx;
   color: #fff;
   text-align: center;
@@ -81,7 +81,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 140rpx;
+  height: 130rpx;
   font-size: 160rpx;
   color: #e9e9e9;
   overflow: hidden;
@@ -100,19 +100,19 @@
 .footwall>view:nth-of-type(1) {
   color: #475669;
   font-size: 48rpx;
-  padding-top: 360rpx;
+  padding-top: 380rpx;
   text-align: center;
 }
 
 .footwall>view:nth-of-type(2) {
   color: rgba(71, 86, 105, 0.60);
   font-size: 40rpx;
-  padding-top: 10rpx;
+  padding-top: 45rpx;
   text-align: center;
 }
 
 .footwall>view:nth-of-type(3) {
-  margin-top:150rpx;
+  margin-top:105rpx;
   margin-left: 50rpx;
   width: 82%;
   height: 2rpx;
@@ -138,7 +138,7 @@
   font-size: 32rpx;
   color: #fff;
   margin-left: 30rpx;
-  margin-top: -9rpx;
+  margin-top: 0rpx;
 }
 
 .bottom>view:nth-of-type(2) {
