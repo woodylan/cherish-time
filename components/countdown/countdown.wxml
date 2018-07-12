@@ -1,10 +1,11 @@
 <!--components/countdown/countdown.wxml-->
 <view class="card">
   <view class="top" style="background: linear-gradient(50deg, {{color[0]}}, {{color[1]}});">
-    <view class="hadPassLabel">{{ timeType == 1? '剩余':'已过' }}</view>
   </view>
   <view class="bottom" style="background: linear-gradient(130deg, {{color[0]}}, {{color[1]}});">
-    <view class="blockDayLable">天</view>
+    <view>{{ timeType == 1? '剩余':'累计' }}</view>
+    <view>天</view>
+    <view>{{date}}</view>
   </view>
 </view>
 <view class='cardContent'>
@@ -17,4 +18,10 @@
     {{days}}
   </view>
 </view>
-<view class="footwall"></view>
+<view class="footwall">
+  <view>{{timeName}}</view>
+  <view>{{remark}}</view>
+  <view style="background: linear-gradient(to right, {{color[0]}}, {{color[1]}});"></view>
+  <view>衣带渐宽终不悔，为伊消得人憔悴。</view>
+  <view>柳永 蝶恋花</view>
+</view>

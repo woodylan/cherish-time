@@ -5,6 +5,7 @@ Component({
    */
   properties: {
     days: String,
+    date: String,
     timeType: Number,
     timeName: String,
     remark: String,
