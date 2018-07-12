@@ -5,8 +5,8 @@
   width: 500rpx;
   height: 400rpx;
   margin: 100rpx auto;
-  transform: perspective(1000rpx) rotateX(0deg);
-  transform-style: preserve-3d;
+   transform: perspective(1000rpx) rotateX(0deg);
+  transform-style: preserve-3d; 
 }
 
 .cardContent {
@@ -42,7 +42,7 @@
   bottom: 0;
   width: 500rpx;
   height: 100%;
-  transform: rotateX(0) translateZ(25rpx);
+  /* transform: rotateX(0) translateZ(0rpx); */
 }
 
 .circle>view {

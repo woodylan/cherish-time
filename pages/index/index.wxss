@@ -48,7 +48,7 @@
   text-align: center;
   margin-top: 5rpx;
   margin-right: 40rpx;
-  width: 105rpx;
+  width: 110rpx;
   border-radius: 15rpx;
   border-style: solid;
   border-width: 1rpx;
