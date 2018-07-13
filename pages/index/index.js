@@ -41,9 +41,6 @@ Page({
   },
 
   onLoad: function(options) {
-    wx.showLoading({
-      title: '加载中',
-    });
     //获取用户信息
     this.getUserInfo()
   },
@@ -55,6 +52,9 @@ Page({
   },
 
   onGotUserInfo: function(e) {
+    wx.showLoading({
+      title: '加载中',
+    });
     this.getUserInfo()
     app.globalData.userInfo = e.detail.userInfo
 

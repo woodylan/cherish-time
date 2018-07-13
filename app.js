@@ -7,6 +7,12 @@ App({
     loginData: '',
   },
 
+  onLaunch: function() {
+    wx.showLoading({
+      title: '加载中',
+    });
+  },
+
   postRequest: function(action, inputData, showError = true, callback) {
     let _this = this;
     wx.request({
@@ -37,7 +43,7 @@ App({
     })
   },
 
-  showToastTip: function (name, icon = 'none') {
+  showToastTip: function(name, icon = 'none') {
     wx.showToast({
       title: name,
       icon: icon,

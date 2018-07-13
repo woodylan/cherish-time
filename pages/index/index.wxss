@@ -90,7 +90,7 @@
 
 .float-button {
   z-index: 998;
-  bottom: 50rpx;
+  bottom: 70rpx;
   right: 50rpx;
   position: fixed;
   background-color: "#e84e40";
@@ -98,8 +98,8 @@
 
 .float-button-icon {
   display: inline-block;
-  width: 100rpx;
-  height: 100rpx;
+  width: 120rpx;
+  height: 120rpx;
 }
 
 .authorization {
