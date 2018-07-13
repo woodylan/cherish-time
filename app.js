@@ -7,7 +7,7 @@ App({
     loginData: '',
   },
 
-  postRequest: function(action, inputData, callback) {
+  postRequest: function(action, inputData, showError = true, callback) {
     let _this = this;
     wx.request({
       url: CONFIG.API_URL + action,
@@ -22,11 +22,26 @@ App({
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
+        if (res.data.code != 0) {
+          if (showError === true) {
+            _this.showToastTip(res.data.msg)
+            return;
+          }
+        }
+
         callback(res.data);
         console.log(res)
       },
       fail: function(res) {},
       complete: function(res) {},
+    })
+  },
+
+  showToastTip: function (name, icon = 'none') {
+    wx.showToast({
+      title: name,
+      icon: icon,
+      duration: 2000
     })
   },
 })

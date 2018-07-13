@@ -7,7 +7,7 @@
 
 .timeName {
   color: #fff;
-  width: 300rpx;
+  width: 455rpx;
   font-size: 44rpx;
   padding: 20rpx 20rpx 0 30rpx;
 }

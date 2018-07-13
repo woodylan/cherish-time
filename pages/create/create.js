@@ -68,12 +68,31 @@ Page({
     return val.replace(/-/g, '');
   },
 
+  validate: function(inputData, type) {
+    if (inputData.name.length == 0) {
+      this.showToastTip('名称必须填写')
+
+      return false
+    }
+
+    console.log(inputData.date)
+    if (inputData.date === null) {
+      this.showToastTip('日期必须填写')
+
+      return false
+    }
+
+    return true
+  },
+
   formSubmit: function(e) {
-    //隐藏提交按钮
-    this.setData({
-      isButtonDisabled: true
-    })
     var inputData = e.detail.value
+
+    //判断是否为空
+    if (!this.validate(inputData)) {
+      return
+    }
+
     var data = {
       'name': inputData.name,
       'type': this.data.timeType,
@@ -81,8 +100,13 @@ Page({
       'color': this.data.radioSelect,
       'remark': this.data.inputRemark
     }
-    let _this = this;
-    app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function(res) {
+
+    //隐藏提交按钮
+    this.setData({
+      isButtonDisabled: true
+    })
+
+    app.postRequest(CONFIG.ACTION.TIME.CREATE, data, true, function(res) {
       wx.navigateBack({
         delta: 1
       })

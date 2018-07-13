@@ -71,7 +71,7 @@ Page({
     var data = {
       'auth': wx.getStorageSync('auth')
     }
-    app.postRequest(CONFIG.ACTION.USER.CHECK_AUTH, data, function(res) {
+    app.postRequest(CONFIG.ACTION.USER.CHECK_AUTH, data, false, function(res) {
       if (res.code != 0) {
         //登录
         _this.login()
@@ -98,7 +98,7 @@ Page({
             }
 
             // 发送 res.code 到后台换取 openId, sessionKey, unionId
-            app.postRequest(CONFIG.ACTION.USER.LOGIN, data, function(res) {
+            app.postRequest(CONFIG.ACTION.USER.LOGIN, data, false, function(res) {
               wx.removeStorageSync('auth');
               wx.setStorageSync('auth', res.data.auth);
               _this.getTimeData()
