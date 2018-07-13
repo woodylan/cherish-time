@@ -146,11 +146,15 @@ Page({
             isShowAuthorization: true
           })
         }
+
+        wx.hideLoading()
       },
       fail: res => {
         this.setData({
           isShowAuthorization: true
         })
+
+        wx.hideLoading()
       }
     })
   },
@@ -201,7 +205,7 @@ Page({
     var inputData = {
       "currentPage": currentPage,
     }
-    app.postRequest(CONFIG.ACTION.TIME.LIST, inputData, function(res) {
+    app.postRequest(CONFIG.ACTION.TIME.LIST, inputData, true, function(res) {
       var timeList = []
       if (isRefresh === true) {
         timeList = _this.data.timeList.concat(res.data.list);
