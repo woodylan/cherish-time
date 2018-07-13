@@ -36,6 +36,8 @@ Page({
     lock: false, // 限制模块右滑
     now: 0, //为标记滑动位置设置的变量
     slideList: [], //编辑每个卡片的偏移量
+
+    isCanRefresh: false, //是否可以刷新
   },
 
   onLoad: function(options) {
@@ -44,7 +46,12 @@ Page({
     });
     //获取用户信息
     this.getUserInfo()
-    wx.hideLoading();
+  },
+
+  onShow: function() {
+    if (this.data.isCanRefresh) {
+      this.getTimeData()
+    }
   },
 
   onGotUserInfo: function(e) {
@@ -358,6 +365,10 @@ Page({
   showPopup() {
     let popupComponent = this.selectComponent('.J_Popup');
     popupComponent && popupComponent.show();
+
+    this.setData({
+      isCanRefresh: true
+    })
   },
   hidePopup() {
     let popupComponent = this.selectComponent('.J_Popup');
