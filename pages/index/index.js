@@ -240,25 +240,37 @@ Page({
     var _this = this;
     var id = e.currentTarget.dataset.id
 
-    _this.data.timeList.forEach((val, index, arr) => {
-      if (id == val.id) {
-        arr.splice(index, 1)
-      }
-    });
+    wx.showModal({
+      title: '确定删除？',
+      content: '是否确定删除该时间卡片',
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
 
-    _this.setData({
-      timeList: _this.data.timeList
+          _this.data.timeList.forEach((val, index, arr) => {
+            if (id == val.id) {
+              arr.splice(index, 1)
+            }
+          });
+
+          _this.setData({
+            timeList: _this.data.timeList
+          })
+
+          var data = {
+            'id': id,
+          }
+          app.postRequest(CONFIG.ACTION.TIME.DELETE, data, true, function(res) {
+            console.log(res)
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
 
     this.initdata(_this.data.timeList)
     this._showNotData(_this.data.timeList)
-
-    var data = {
-      'id': id,
-    }
-    app.postRequest(CONFIG.ACTION.TIME.DELETE, data, function(res) {
-      console.log(res)
-    })
   },
 
   //下拉刷新
