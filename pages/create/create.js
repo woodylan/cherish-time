@@ -25,7 +25,8 @@ Page({
     ],
     radioSelect: ['#fc9e9a', '#fed89c'],
     inputName: '',
-    inputRemark: ''
+    inputRemark: '',
+    isButtonDisabled: false, //是否隐藏提交按钮
   },
 
   /**
@@ -68,7 +69,10 @@ Page({
   },
 
   formSubmit: function(e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    //隐藏提交按钮
+    this.setData({
+      isButtonDisabled: true
+    })
     var inputData = e.detail.value
     var data = {
       'name': inputData.name,
@@ -79,7 +83,6 @@ Page({
     }
     let _this = this;
     app.postRequest(CONFIG.ACTION.TIME.CREATE, data, function(res) {
-      console.log(res)
       wx.navigateBack({
         delta: 1
       })
