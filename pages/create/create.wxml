@@ -16,8 +16,10 @@
   </view>
 
   <view class="input-wrap" wx:for="{{colorList}}" wx:key="{{index}}" class="circleGroup">
-    <view class="selectCircle" bindtap="selectRadio" style="background: linear-gradient(to right, {{item[0]}} , {{item[1]}});" data-text="{{item}}">
-      <block wx:if="{{item[0] == radioSelect[0]}}">✓</block>
+    <view class="circleBox">
+      <view class="selectCircle" bindtap="selectRadio" style="background: linear-gradient(to right, {{item[0]}} , {{item[1]}});" data-text="{{item}}">
+        <block wx:if="{{item[0] == radioSelect[0]}}">✓</block>
+      </view>
     </view>
   </view>
 

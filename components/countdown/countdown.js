@@ -9,7 +9,8 @@ Component({
     timeType: Number,
     timeName: String,
     remark: String,
-    color: Array
+    color: Array,
+    sentence: Object,
   },
 
   /**

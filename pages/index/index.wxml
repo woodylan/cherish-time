@@ -67,7 +67,7 @@
    <view class="content" style="background: linear-gradient({{currentMaskColor[0]}} , {{currentMaskColor[1]}});">
     <view class='full-close' bindtap="hideMask" value='false'><image src="/images/icon-close.png"></image></view>
 
-    <countdown timeName="{{ currentMaskItem.name }}" timeType="currentMaskItem.type" days="{{ currentMaskItem.days }}" color="{{currentMaskColor}}" remark="{{ currentMaskItem.remark }}" date="{{m1.formatDataToString(currentMaskItem.date)}}"></countdown>
+    <countdown timeName="{{ currentMaskItem.name }}" timeType="currentMaskItem.type" days="{{ currentMaskItem.days }}" color="{{currentMaskColor}}" remark="{{ currentMaskItem.remark }}" date="{{m1.formatDataToString(currentMaskItem.date)}}" sentence="{{ currentMaskItem.sentence }}"></countdown>
 <!-- 
     <view id="timeType">{{ currentMaskItem.type==1? '倒数日':'累计日' }}</view>
     <view id="timeName">{{ currentMaskItem.name }}</view>

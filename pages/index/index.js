@@ -22,7 +22,13 @@ Page({
       days: 87,
       name: "国庆",
       remark: "旅游去咯",
-      type: 1
+      type: 1,
+      sentence: {
+        id: '111',
+        content: '答案很长，我准备用一生的时间来回答，你准备要听了吗？',
+        author: '林徽因',
+        book: ''
+      }
     }, //当前遮罩层数据
     dataCount: 0, //列表数据数量
     isEnd: false, //是否到底
