@@ -24,7 +24,6 @@
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <view class='slide' wx:for="{{ timeList }}" wx:key="index">
-      <view class='slide-cont' style="transform: translateX({{slideList[index]}}rpx)" bind:touchstart="handstart" bind:touchmove="handmove" bind:touchend="handend">
         <view class="block" data-item="{{item}}" data-index="{{index}}" style="background: linear-gradient(to right, {{item.color[0]}} , {{item.color[1]}});" bindtap="showMask">
           <view class='blockLeft'>
             <view class="timeName">{{item.name}}</view>
@@ -40,11 +39,6 @@
             <view class="blockButton">查看详情</view>
           </view>
         </view>
-      </view>
-      <view class='slide-btn'>
-        <view class='del-class' data-id="{{item.id}}" catchtap='_del'>删除</view>
-        <view class='like-class' data-id="{{item.id}}" catchtap='_like'>编辑</view>
-      </view>
     </view>
   </scroll-view>
   <wxc-loadmore wx:if="{{timeList.length > 6}}" is-end="{{isEnd}}" text="到底了～"></wxc-loadmore>
