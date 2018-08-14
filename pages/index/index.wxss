@@ -67,7 +67,7 @@
 }
 
 .blockRight #days {
-  display: inline;
+  display: inline-block;
   color: #fff;
   text-align: right;
   font-size: 58rpx;

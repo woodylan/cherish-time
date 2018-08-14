@@ -24,21 +24,21 @@
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <view class='slide' wx:for="{{ timeList }}" wx:key="index">
-        <view class="block" data-item="{{item}}" data-index="{{index}}" style="background: linear-gradient(to right, {{item.color[0]}} , {{item.color[1]}});" bindtap="showMask">
-          <view class='blockLeft'>
-            <view class="timeName">{{item.name}}</view>
-            <view class="dayType">{{ item.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(item.date)}}</view>
-          </view>
-
-          <view class='blockRight'>
-            <view id="timeTypeLable">{{ item.type == 1? '剩余':'累计' }}</view>
-            <view class='daysDiv'>
-              <view id="days">{{item.days}}</view>
-              <view id="dayLabel">天</view>
-            </view>
-            <view class="blockButton">查看详情</view>
-          </view>
+      <view class="block" data-item="{{item}}" data-index="{{index}}" style="background: linear-gradient(to right, {{item.color[0]}} , {{item.color[1]}});" bindtap="showMask">
+        <view class='blockLeft'>
+          <view class="timeName">{{item.name}}</view>
+          <view class="dayType">{{ item.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(item.date)}}</view>
         </view>
+
+        <view class='blockRight'>
+          <view id="timeTypeLable">{{ item.days === null? '当前状态': item.type == 1? '剩余':'累计' }}</view>
+          <view class='daysDiv'>
+            <view id="days" style="{{ item.days === null? 'font-size:45rpx;padding:11rpx 0rpx' : '' }}">{{ item.days === null? '已结束': item.days }}</view>
+            <view id="dayLabel">{{ item.days === null? '': '天' }}</view>
+          </view>
+          <view class="blockButton">查看详情</view>
+        </view>
+      </view>
     </view>
   </scroll-view>
   <wxc-loadmore wx:if="{{timeList.length > 6}}" is-end="{{isEnd}}" text="到底了～"></wxc-loadmore>
@@ -57,12 +57,14 @@
 </wxc-popup>
 
 <view id="fullScreen" class="viewHide{{isShowMask?'ViewShow':''}}">
-  
-   <view class="content" style="background: linear-gradient({{currentMaskColor[0]}} , {{currentMaskColor[1]}});">
-    <view class='full-close' bindtap="hideMask" value='false'><image src="/images/icon-close.png"></image></view>
+
+  <view class="content" style="background: linear-gradient({{currentMaskColor[0]}} , {{currentMaskColor[1]}});">
+    <view class='full-close' bindtap="hideMask" value='false'>
+      <image src="/images/icon-close.png"></image>
+    </view>
 
     <countdown timeName="{{ currentMaskItem.name }}" timeType="currentMaskItem.type" days="{{ currentMaskItem.days }}" color="{{currentMaskColor}}" remark="{{ currentMaskItem.remark }}" date="{{m1.formatDataToString(currentMaskItem.date)}}" sentence="{{ currentMaskItem.sentence }}"></countdown>
-<!-- 
+    <!-- 
     <view id="timeType">{{ currentMaskItem.type==1? '倒数日':'累计日' }}</view>
     <view id="timeName">{{ currentMaskItem.name }}</view>
 
