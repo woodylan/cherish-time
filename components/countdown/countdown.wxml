@@ -33,3 +33,15 @@
     {{ days == ''? '已结束': days }}
   </view>
 </view>
+
+<view class="button-icon">
+    <view class="button-image">
+      <image src="/images/icon_share@3x.png"></image>
+    </view>
+    <view class="button-image">
+      <image src="/images/icon_edit@3x.png"></image>
+    </view>
+    <view class="button-image">
+      <image src="/images/icon_delect@3x.png"></image>
+    </view>
+  </view>
