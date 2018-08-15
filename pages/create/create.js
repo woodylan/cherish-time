@@ -97,6 +97,7 @@ Page({
 
   formSubmit: function(e) {
     var inputData = e.detail.value
+    let _this = this
 
     //判断是否为空
     if (!this.validate(inputData)) {
@@ -124,6 +125,13 @@ Page({
     }
 
     app.postRequest(event, data, true, function(res) {
+      var pages = getCurrentPages();
+      if (_this.data.id != '' && pages[0].__route__ == 'pages/index/index') {
+        pages[0].changeCurrentMaskItemData(
+          res.data || {}
+        )
+      }
+
       wx.navigateBack({
         delta: 1
       })

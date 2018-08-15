@@ -8,7 +8,6 @@ exports.ACTION = {
     CREATE: 'time/create',
     DELETE: 'time/delete',
     LIST: 'time/list',
-    SINGLE: 'time/detail',
-    LIKE: 'time/like'
+    EDIT: 'time/edit'
   }
 };

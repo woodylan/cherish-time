@@ -204,6 +204,23 @@ Page({
     })
   },
 
+  //修改默认数据
+  changeCurrentMaskItemData: function(data) {
+    //todo 下拉刷新列表
+    var currentMaskItem = this.data.currentMaskItem
+
+    Object.keys(data).forEach(function(key) {
+      if (currentMaskItem.hasOwnProperty(key)) {
+        currentMaskItem[key] = data[key]
+      }
+    });
+
+    this.setData({
+      currentMaskItem: currentMaskItem,
+      currentMaskColor: currentMaskItem.color
+    })
+  },
+
   //获取列表
   getTimeData: function(currentPage = 1, isRefresh = false) {
     let _this = this;
@@ -273,13 +290,10 @@ Page({
 
   //编辑事件
   editEvent(e) {
-    console.log(JSON.stringify(e.detail))
     var urlData = this.param(e.detail);
-    console.log(urlData)
     wx.navigateTo({
       url: '/pages/create/create?' + urlData
     });
-    console.log('调用了编辑事件')
   },
 
   //下拉刷新
