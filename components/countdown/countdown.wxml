@@ -35,9 +35,9 @@
 </view>
 
 <view class="button-icon">
-  <!-- <view class="button-image">
+  <button class="button-image" open-type="share">
     <image src="/images/icon_share@3x.png" hover-class="button-image-hover" hover-stay-time="140"></image>
-  </view> -->
+  </button>
   <view class="button-image" bindtap='_edit' hover-class="button-image-hover" hover-stay-time="140">
     <image src="/images/icon_edit@3x.png"></image>
   </view>

@@ -48,6 +48,10 @@ Page({
     if (this.data.isCanRefresh) {
       this.getTimeData()
     }
+
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   },
 
   onGotUserInfo: function(e) {
