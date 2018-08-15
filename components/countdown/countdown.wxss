@@ -106,19 +106,19 @@
 .footwall>view:nth-of-type(1) {
   color: #475669;
   font-size: 48rpx;
-  padding-top: 380rpx;
+  padding-top: 350rpx;
   text-align: center;
 }
 
 .footwall>view:nth-of-type(2) {
   color: rgba(71, 86, 105, 0.60);
   font-size: 40rpx;
-  padding-top: 45rpx;
+  padding-top: 30rpx;
   text-align: center;
 }
 
 .footwall>view:nth-of-type(3) {
-  margin-top: 80rpx;
+  margin-top: 116rpx;
   margin-left: 50rpx;
   width: 82%;
   height: 2rpx;
@@ -174,17 +174,17 @@
 
 .button-image {
   float: left;
-  height: 120rpx;
-  width: 120rpx;
+  height: 100rpx;
+  width: 100rpx;
   background-color: rgba(255, 255, 255, 0.50);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 40rpx 50rpx;
+  margin: 0rpx 50rpx 60rpx 50rpx;
 }
 
 .button-image image {
-  height: 80rpx;
-  width: 80rpx;
+  height: 60rpx;
+  width: 60rpx;
 }

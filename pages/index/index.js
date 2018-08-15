@@ -16,6 +16,7 @@ Page({
     isShowMask: false,
     currentMaskColor: ['#fc9e9a', '#fed89c'], //遮罩层颜色
     currentMaskItem: {
+      id: "TIME_ID",
       color: ['#fc9e9a', '#fed89c'],
       createTime: 1530803261,
       date: 20181001,
@@ -232,9 +233,9 @@ Page({
   },
 
   //删除
-  _del: function(e) {
+  deleteEvent: function(e) {
     var _this = this;
-    var id = e.currentTarget.dataset.id
+    var id = e.detail.timeId
 
     wx.showModal({
       title: '确定删除？',
@@ -259,6 +260,9 @@ Page({
           app.postRequest(CONFIG.ACTION.TIME.DELETE, data, true, function(res) {
             console.log(res)
           })
+
+          //关闭遮罩层
+          _this.hideMask()
         } else if (res.cancel) {
           console.log('用户点击取消')
         }

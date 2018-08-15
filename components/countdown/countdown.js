@@ -4,6 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    timeId: String,
     days: String,
     date: String,
     timeType: Number,
@@ -24,6 +25,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    //删除
+    _del: function(e) {
+      //调用父级的事件
+      this.triggerEvent('delete', {
+        timeId: this.data.timeId
+      })
+    },
   }
 })
