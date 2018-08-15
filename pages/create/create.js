@@ -3,7 +3,13 @@ const app = getApp()
 var CONFIG = require("../../config");
 Page({
   data: {
+    id: "2343534",
+    color: ['#86A8E7', '#91EAE4'],
+    date: 1332,
+    name: "233",
+    remark: "46757",
     timeType: 2,
+
     colorList: [
       ['#fc9e9a', '#fed89c'],
       ['#eda1c1', '#fab2ac'],
@@ -23,9 +29,6 @@ Page({
       ['#757F9A', '#D7DDE8'],
       ['#EC6F66', '#F3A183'],
     ],
-    radioSelect: ['#fc9e9a', '#fed89c'],
-    inputName: '',
-    inputRemark: '',
     isButtonDisabled: false, //是否隐藏提交按钮
   },
 
@@ -34,14 +37,20 @@ Page({
    */
   onLoad: function(option) {
     // wx.hideLoading()
+    var color = decodeURIComponent(option.color || '#fc9e9a,#fed89c')
     this.setData({
-      timeType: option.type,
+      id: option.id || '',
+      color: color.split(","),
+      date: decodeURIComponent(option.date || ''),
+      name: decodeURIComponent(option.name || ''),
+      remark: decodeURIComponent(option.remark || ''),
+      timeType: decodeURIComponent(option.type || 2),
     });
   },
 
   selectRadio: function(e) {
     this.setData({
-      radioSelect: e.currentTarget.dataset.text
+      color: e.currentTarget.dataset.text
     })
   },
 
@@ -54,14 +63,14 @@ Page({
   //输入名称事件
   onInputName(e) {
     this.setData({
-      inputName: e.detail.value
+      name: e.detail.value
     });
   },
 
   //输入备注事件
   onInputRemark(e) {
     this.setData({
-      inputRemark: e.detail.value
+      remark: e.detail.value
     });
   },
 
@@ -95,11 +104,12 @@ Page({
     }
 
     var data = {
+      'id': this.data.id,
       'name': inputData.name,
       'type': this.data.timeType,
       'date': this.dataToInt(inputData.date),
-      'color': this.data.radioSelect,
-      'remark': this.data.inputRemark
+      'color': this.data.color,
+      'remark': this.data.remark
     }
 
     //隐藏提交按钮
@@ -107,7 +117,13 @@ Page({
       isButtonDisabled: true
     })
 
-    app.postRequest(CONFIG.ACTION.TIME.CREATE, data, true, function(res) {
+    //判断是新增还是删除
+    var event = CONFIG.ACTION.TIME.CREATE
+    if (this.data.id != '') {
+      event = CONFIG.ACTION.TIME.EDIT
+    }
+
+    app.postRequest(event, data, true, function(res) {
       wx.navigateBack({
         delta: 1
       })

@@ -1,7 +1,8 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="input-wrap">
-    <input name="name" value="{{inputName}}" hidden/>
-    <wxc-input type="text" mode="wrapped" right="{{true}}" title="{{ timeType==1? '倒数日':'累计日' }}名称" bind:input="onInputName" placeholder="起个名吧" maxlength="10"></wxc-input>
+    <input name="id" value="{{id}}" hidden/>
+    <input name="name" value="{{name}}" hidden/>
+    <wxc-input type="text" mode="wrapped" right="{{true}}" value="{{name}}" title="{{ timeType==1? '倒数日':'累计日' }}名称" bind:input="onInputName" placeholder="起个名吧" maxlength="10"></wxc-input>
   </view>
 
   <view class="input-wrap">
@@ -11,14 +12,14 @@
   </view>
 
   <view class="input-wrap">
-    <input name="remark" value="{{inputRemark}}" hidden/>
-    <wxc-input type="text" mode="wrapped" placeholder="备注" bind:input="onInputRemark" maxlength="13"></wxc-input>
+    <input name="remark" value="{{remark}}" hidden/>
+    <wxc-input type="text" mode="wrapped" value="{{remark}}" placeholder="备注" bind:input="onInputRemark" maxlength="13"></wxc-input>
   </view>
 
   <view class="input-wrap" wx:for="{{colorList}}" wx:key="{{index}}" class="circleGroup">
     <view class="circleBox">
       <view class="selectCircle" bindtap="selectRadio" style="background: linear-gradient(to right, {{item[0]}} , {{item[1]}});" data-text="{{item}}">
-        <block wx:if="{{item[0] == radioSelect[0]}}">✓</block>
+        <block wx:if="{{item[0] == color[0]}}">✓</block>
       </view>
     </view>
   </view>

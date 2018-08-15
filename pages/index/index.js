@@ -271,6 +271,17 @@ Page({
     this._showNotData(_this.data.timeList)
   },
 
+  //编辑事件
+  editEvent(e) {
+    console.log(JSON.stringify(e.detail))
+    var urlData = this.param(e.detail);
+    console.log(urlData)
+    wx.navigateTo({
+      url: '/pages/create/create?' + urlData
+    });
+    console.log('调用了编辑事件')
+  },
+
   //下拉刷新
   onPullDownRefresh: function() {
     //显示顶部刷新图标
@@ -316,5 +327,26 @@ Page({
       isShowNotData: isShowNotData
     })
   },
+
+  //对象序列化成url格式
+  param: function(json) {
+    if (!json) return ''
+    return this.cleanArray(Object.keys(json).map(key => {
+      if (json[key] === undefined) return ''
+      return encodeURIComponent(key) + '=' +
+        encodeURIComponent(json[key])
+    })).join('&')
+  },
+
+  cleanArray: function(actual) {
+    const newArray = []
+    for (let i = 0; i < actual.length; i++) {
+      if (actual[i]) {
+        newArray.push(actual[i])
+      }
+    }
+    return newArray
+  }
+
 
 })

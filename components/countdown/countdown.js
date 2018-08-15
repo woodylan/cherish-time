@@ -32,5 +32,16 @@ Component({
         timeId: this.data.timeId
       })
     },
+
+    _edit() {
+      this.triggerEvent('edit', {
+        id: this.data.timeId,
+        date: this.data.date,
+        type: this.data.timeType,
+        name: this.data.timeName,
+        remark: this.data.remark,
+        color: this.data.color,
+      })
+    }
   }
 })
