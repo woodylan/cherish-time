@@ -173,6 +173,7 @@
 }
 
 .button-image {
+  outline: none;
   float: left;
   height: 100rpx;
   width: 100rpx;
@@ -183,6 +184,10 @@
   justify-content: center;
   margin: 0rpx 50rpx 60rpx 50rpx;
 }
+
+.button-image::after {
+  border: 0;
+} 
 
 .button-image image {
   height: 60rpx;
