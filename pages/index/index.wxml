@@ -44,17 +44,17 @@
   <wxc-loadmore wx:if="{{timeList.length > 6}}" is-end="{{isEnd}}" text="到底了～"></wxc-loadmore>
 </view>
 
-<view class="float-button" bindtap="showPopup">
+<view class="float-button" bindtap="bindPickerChange">
   <image class="float-button-icon" src="/images/icon-add.png"></image>
 </view>
 
-<wxc-popup class="J_Popup" animation-mode="bottom" align="bottom">
+<!-- <wxc-popup class="J_Popup" animation-mode="bottom" align="bottom">
   <view class="popup__content">
     <wxc-button type="beauty" btnStyle="min-width: 200rpx;padding: 0;border-radius: 132rpx;margin-right:20rpx" bindtap="bindPickerChange" data-type="1">倒数日</wxc-button>
 
     <wxc-button type="beauty" btnStyle="min-width: 200rpx;padding: 0;border-radius: 132rpx;margin-left:20rpx" bindtap="bindPickerChange" data-type="2">累计日</wxc-button>
   </view>
-</wxc-popup>
+</wxc-popup> -->
 
 <view id="fullScreen" class="viewHide{{isShowMask?'ViewShow':''}}">
 
@@ -63,17 +63,7 @@
       <image src="/images/icon-close.png"></image>
     </view>
 
-    <countdown timeId="{{ currentMaskItem.id }}" timeName="{{ currentMaskItem.name }}" timeType="{{ currentMaskItem.type }}" days="{{ currentMaskItem.days }}" color="{{currentMaskColor}}" remark="{{ currentMaskItem.remark }}" date="{{m1.formatDataToString(currentMaskItem.date)}}" sentence="{{ currentMaskItem.sentence }}" binddelete="deleteEvent" bindedit="editEvent"></countdown>
-    <!-- 
-    <view id="timeType">{{ currentMaskItem.type==1? '倒数日':'累计日' }}</view>
-    <view id="timeName">{{ currentMaskItem.name }}</view>
-
-    <view id="timeName">{{ currentMaskItem.days }}</view>
-
-    <view id="timeName">{{ currentMaskItem.type == 1? '目标日':'起始日' }}：{{m1.formatDataToString(currentMaskItem.date)}}</view>
-
-    <view id="timeName">{{ currentMaskItem.remark }}</view> -->
+    <countdown timeId="{{ currentMaskItem.id }}" timeName="{{ currentMaskItem.name }}" timeType="{{ currentMaskItem.type }}" days="{{ currentMaskItem.days }}" color="{{currentMaskColor}}" remark="{{ currentMaskItem.remark }}" date="{{m1.formatDataToString(currentMaskItem.date)}}"
+      sentence="{{ currentMaskItem.sentence }}" binddelete="deleteEvent" bindedit="editEvent"></countdown>
   </view>
-  <!-- {{currentMaskItem.type}}
-  <view class="dialog"></view>  -->
 </view>

@@ -25,11 +25,15 @@
 }
 
 .blockLeft {
+  /* border: 1rpx solid #19191a; */
+  width: 66%;
   float: left;
 }
 
 .blockRight {
+  /* border: 1rpx solid #19191a; */
   float: right;
+  width: 32%;
 }
 
 .dayType {
@@ -71,9 +75,11 @@
   color: #fff;
   text-align: right;
   font-size: 58rpx;
+  min-width: 110rpx;
 }
 
 .daysDiv {
+  /* border: 1rpx solid #19191a; */
   padding-top: 10rpx;
   padding-right: 40rpx;
   text-align: right;

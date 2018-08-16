@@ -171,10 +171,8 @@ Page({
 
   //选择器
   bindPickerChange: function(event) {
-    let _type = event.currentTarget.dataset.type; //默认倒计时
-    console.log(_type)
     wx.navigateTo({
-      url: '/pages/create/create?type=' + _type
+      url: '/pages/create/create'
     });
   },
 
@@ -319,19 +317,6 @@ Page({
     if (this.data.currentPage < this.data.lastPage) {
       this.getTimeData(this.data.currentPage + 1, true)
     }
-  },
-
-  showPopup() {
-    let popupComponent = this.selectComponent('.J_Popup');
-    popupComponent && popupComponent.show();
-
-    this.setData({
-      isCanRefresh: true
-    })
-  },
-  hidePopup() {
-    let popupComponent = this.selectComponent('.J_Popup');
-    popupComponent && popupComponent.hide();
   },
 
   //控制显示空数据流

@@ -2,18 +2,18 @@
   <view class="input-wrap">
     <input name="id" value="{{id}}" hidden/>
     <input name="name" value="{{name}}" hidden/>
-    <wxc-input type="text" mode="wrapped" right="{{true}}" value="{{name}}" title="{{ timeType==1? '倒数日':'累计日' }}名称" bind:input="onInputName" placeholder="起个名吧" maxlength="10"></wxc-input>
+    <wxc-input type="text" mode="wrapped" right="{{true}}" value="{{name}}" title="名称" bind:input="onInputName" placeholder="这是一个什么日子" maxlength="10"></wxc-input>
   </view>
 
   <view class="input-wrap">
     <picker mode="date" name="date" value="{{date}}" start="1970-01-01" bindchange="bindDateChange">
-      <wxc-input mode="wrapped" right="{{true}}" title="{{ timeType==1? '目标':'起始' }}日期" placeholder="选择一个日期" value="{{date}}" disabled></wxc-input>
+      <wxc-input mode="wrapped" right="{{true}}" title="日期" placeholder="发生在哪一天" value="{{date}}" disabled></wxc-input>
     </picker>
   </view>
 
   <view class="input-wrap">
     <input name="remark" value="{{remark}}" hidden/>
-    <wxc-input type="text" mode="wrapped" value="{{remark}}" placeholder="备注" bind:input="onInputRemark" maxlength="13"></wxc-input>
+    <wxc-input type="text" mode="wrapped" value="{{remark}}" placeholder="有什么难忘的事情" bind:input="onInputRemark" maxlength="13"></wxc-input>
   </view>
 
   <view class="input-wrap" wx:for="{{colorList}}" wx:key="{{index}}" class="circleGroup">

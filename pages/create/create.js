@@ -107,7 +107,6 @@ Page({
     var data = {
       'id': this.data.id,
       'name': inputData.name,
-      'type': this.data.timeType,
       'date': this.dataToInt(inputData.date),
       'color': this.data.color,
       'remark': this.data.remark
