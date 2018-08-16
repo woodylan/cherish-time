@@ -4,7 +4,7 @@
   position: relative;
   width: 550rpx;
   height: 400rpx;
-  margin: 100rpx auto;
+  margin: 80rpx auto;
   transform: perspective(1000rpx) rotateX(0deg);
   transform-style: preserve-3d;
 }
@@ -15,7 +15,7 @@
   width: 100%;
   text-align: center;
   height: 400rpx;
-  margin-top: 100rpx;
+  margin-top: 80rpx;
   transform: perspective(1100rpx) rotateX(0deg);
   transform-style: preserve-3d;
 }
@@ -106,19 +106,19 @@
 .footwall>view:nth-of-type(1) {
   color: #475669;
   font-size: 48rpx;
-  padding-top: 350rpx;
+  padding-top: 300rpx;
   text-align: center;
 }
 
 .footwall>view:nth-of-type(2) {
   color: rgba(71, 86, 105, 0.60);
   font-size: 40rpx;
-  padding-top: 30rpx;
+  padding-top: 40rpx;
   text-align: center;
 }
 
 .footwall>view:nth-of-type(3) {
-  margin-top: 116rpx;
+  margin-top: 125rpx;
   margin-left: 50rpx;
   width: 82%;
   height: 2rpx;
@@ -127,7 +127,7 @@
 .footwall>view:nth-of-type(4) {
   color: rgba(71, 86, 105, 0.60);
   font-size: 26rpx;
-  padding-top: 25rpx;
+  padding-top: 30rpx;
   text-align: left;
   padding-left: 50rpx;
   width: 85%;
@@ -144,8 +144,9 @@
 .bottom>view:nth-of-type(1) {
   font-size: 32rpx;
   color: #fff;
-  margin-left: 30rpx;
-  margin-top: 0rpx;
+  width: 90%;
+  margin-left: 20rpx;
+  margin-top: -20rpx;
 }
 
 .bottom>view:nth-of-type(2) {
