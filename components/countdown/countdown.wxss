@@ -4,7 +4,7 @@
   position: relative;
   width: 550rpx;
   height: 400rpx;
-  margin: 80rpx auto;
+  margin: 75rpx auto;
   transform: perspective(1000rpx) rotateX(0deg);
   transform-style: preserve-3d;
 }
@@ -15,7 +15,7 @@
   width: 100%;
   text-align: center;
   height: 400rpx;
-  margin-top: 80rpx;
+  margin-top: 75rpx;
   transform: perspective(1100rpx) rotateX(0deg);
   transform-style: preserve-3d;
 }
@@ -106,7 +106,7 @@
 .footwall>view:nth-of-type(1) {
   color: #475669;
   font-size: 48rpx;
-  padding-top: 300rpx;
+  padding-top: 295rpx;
   text-align: center;
 }
 
@@ -161,7 +161,7 @@
   font-size: 34rpx;
   color: #fff;
   text-align: center;
-  margin-top: 40rpx;
+  margin-top: 60rpx;
 }
 
 .button-icon {
