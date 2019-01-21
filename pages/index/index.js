@@ -229,6 +229,7 @@ Page({
 
     var inputData = {
       "currentPage": currentPage,
+      "perPage": 20
     }
     app.postRequest(CONFIG.ACTION.TIME.LIST, inputData, true, function(res) {
       var timeList = []

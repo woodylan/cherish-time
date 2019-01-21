@@ -18,8 +18,8 @@
   <view class="top" style="background: linear-gradient(50deg, {{color[0]}}, {{color[1]}});">
   </view>
   <view class="bottom" style="background: linear-gradient(130deg, {{color[0]}}, {{color[1]}});">
-    <view>{{ days === ''? '　' : timeType == 1? '剩余':'累计' }}</view>
-    <view>{{ days === ''? '　': '天' }}</view>
+    <view>{{ days == -1? '　' : timeType == 1? '剩余':'累计' }}</view>
+    <view>{{ days == -1? '　': '天' }}</view>
     <view>{{date}}</view>
   </view>
 </view>
@@ -29,8 +29,8 @@
     <view></view>
   </view>
   <view class="font">
-    <view>{{ days == ''? '已结束': days }}</view>
-    {{ days == ''? '已结束': days }}
+    <view>{{ days == -1? '已结束': days }}</view>
+    {{ days == -1? '已结束': days }}
   </view>
 </view>
 

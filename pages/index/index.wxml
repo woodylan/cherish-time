@@ -31,10 +31,10 @@
         </view>
 
         <view class='blockRight'>
-          <view id="timeTypeLable">{{ item.days === null? '当前状态': item.type == 1? '剩余':'累计' }}</view>
+          <view id="timeTypeLable">{{ item.days === -1? '当前状态': item.type == 1? '剩余':'累计' }}</view>
           <view class='daysDiv'>
-            <view id="days" style="{{ item.days === null? 'font-size:45rpx;padding:11rpx 0rpx' : '' }}">{{ item.days === null? '已结束': item.days }}</view>
-            <view id="dayLabel">{{ item.days === null? '': '天' }}</view>
+            <view id="days" style="{{ item.days === -1? 'font-size:45rpx;padding:11rpx 0rpx' : '' }}">{{ item.days === -1? '已结束': item.days }}</view>
+            <view id="dayLabel">{{ item.days === -1? '': '天' }}</view>
           </view>
           <view class="blockButton">查看详情</view>
         </view>
