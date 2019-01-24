@@ -8,8 +8,8 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.94",
 	"appid": "",
+	"libVersion": "2.0.9",
 	"projectname": "cherish-time",
 	"isGameTourist": false,
 	"condition": {
