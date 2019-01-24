@@ -16,6 +16,8 @@ PHP：[https://github.com/woodylan/cherish-time-php](https://github.com/woodylan
 
 ## 项目截图
 
+![小程序码](https://github.com/woodylan/cherish-time/blob/master/images/miniprogram-qcode.jpg)
+
 ![主界面](https://github.com/woodylan/cherish-time/blob/master/images/readme_main.png)
 
 ![详情页面](https://github.com/woodylan/cherish-time/blob/master/images/readme_detail.png)
