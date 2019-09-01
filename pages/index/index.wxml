@@ -5,7 +5,36 @@
     return val.toString().replace(reg, '$1-$2-$3');
   }
 
+  //判断月份、日期是否相等
+  var monthDay = function(val) {
+    var date = getDate();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+
+    if (parseInt(val.slice(4, 6)) == month && parseInt(val.slice(6, 8)) == day) {
+      return true;
+    }
+
+    return false;
+  }
+
+  //获取年份间隔
+  var yesrsBetween = function(val) {
+    var date = getDate();
+    var year = date.getFullYear();
+
+    var target = val.slice(0, 4);
+    year - target
+    if (year <= target) {
+      return target - year
+    }
+
+    return year - target
+  }
+
   module.exports.formatDataToString = formatDataToString;
+  module.exports.monthDay = monthDay;
+  module.exports.yesrsBetween = yesrsBetween;
 </wxs>
 
 <view class="authorization" wx:if="{{isShowAuthorization}}">
@@ -20,7 +49,6 @@
 </view>
 
 <wxc-abnor wx:if="{{isShowNotData}}" type="DATA" image="{{image}}" title="你还没添加数据哦" tip="点击右下方按钮添加吧"></wxc-abnor>
-
 <view class="section">
   <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <view class='slide' wx:for="{{ timeList }}" wx:key="index">
@@ -33,8 +61,16 @@
         <view class='blockRight'>
           <view id="timeTypeLable">{{ item.days === -1? '当前状态': item.type == 1? '剩余':'累计' }}</view>
           <view class='daysDiv'>
-            <view id="days" style="{{ item.days === -1? 'font-size:45rpx;padding:11rpx 0rpx' : '' }}">{{ item.days === -1? '已结束': item.days }}</view>
-            <view id="dayLabel">{{ item.days === -1? '': '天' }}</view>
+            <view id="days" style="{{ item.days === -1? 'font-size:45rpx;padding:11rpx 0rpx' : '' }}">
+              <view wx:if="{{item.days === -1}}">已结束</view>
+              <view wx:elif="{{m1.monthDay(item.date) == true && item.type == 2}}">{{m1.yesrsBetween(item.date)}}</view>
+              <view wx:else>{{item.days}}</view>
+
+            </view>
+            <view id="dayLabel" wx:if="{{item.days === -1}}">
+            </view>
+            <view id="dayLabel" wx:elif="{{m1.monthDay(item.date) == true && item.type == 2}}">周年</view>
+            <view id="dayLabel" wx:else>天</view>
           </view>
           <view class="blockButton">查看详情</view>
         </view>
@@ -55,7 +91,7 @@
       <image src="/images/icon-close.png"></image>
     </view>
 
-    <countdown timeId="{{ currentMaskItem.id }}" timeName="{{ currentMaskItem.name }}" timeType="{{ currentMaskItem.type }}" days="{{ currentMaskItem.days }}" color="{{currentMaskColor}}" remark="{{ currentMaskItem.remark }}" date="{{m1.formatDataToString(currentMaskItem.date)}}"
+    <countdown timeId="{{ currentMaskItem.id }}" timeName="{{ currentMaskItem.name }}" timeType="{{ currentMaskItem.type }}" days="{{ currentMaskItem.days }}" color="{{currentMaskColor}}" remark="{{ currentMaskItem.remark }}" date="{{m1.formatDataToString(currentMaskItem.date)}}" originDate="{{ currentMaskItem.date }}"
       sentence="{{ currentMaskItem.sentence }}" binddelete="deleteEvent" bindedit="editEvent"></countdown>
   </view>
 </view>

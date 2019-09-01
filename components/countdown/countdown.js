@@ -7,6 +7,7 @@ Component({
     timeId: String,
     days: String,
     date: String,
+    originDate: String,
     timeType: Number,
     timeName: String,
     remark: String,
@@ -37,6 +38,7 @@ Component({
       this.triggerEvent('edit', {
         id: this.data.timeId,
         date: this.data.date,
+        originDate: this.data.originDate,
         type: this.data.timeType,
         name: this.data.timeName,
         remark: this.data.remark,

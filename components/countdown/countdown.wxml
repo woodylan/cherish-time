@@ -1,4 +1,42 @@
 <!--components/countdown/countdown.wxml-->
+<wxs module="m1">
+  var formatDataToString = function(val) {
+    var reg = getRegExp('(.{4})(.{2})(.{2})');
+    return val.toString().replace(reg, '$1-$2-$3');
+  }
+
+  //判断月份、日期是否相等
+  var monthDay = function(val) {
+    var date = getDate();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+
+    if (parseInt(val.slice(4, 6)) == month && parseInt(val.slice(6, 8)) == day) {
+      return true;
+    }
+
+    return false;
+  }
+
+  //获取年份间隔
+  var yesrsBetween = function(val) {
+    var date = getDate();
+    var year = date.getFullYear();
+
+    var target = val.slice(0, 4);
+    year - target
+    if (year <= target) {
+      return target - year
+    }
+
+    return year - target
+  }
+
+  module.exports.formatDataToString = formatDataToString;
+  module.exports.monthDay = monthDay;
+  module.exports.yesrsBetween = yesrsBetween;
+</wxs>
+
 <view class="footwall">
   <view>{{timeName}}</view>
   <view>{{ remark=='' ? '　': remark}}</view>
@@ -19,8 +57,14 @@
   </view>
   <view class="bottom" style="background: linear-gradient(130deg, {{color[0]}}, {{color[1]}});">
     <view>{{ days == -1? '　' : timeType == 1? '剩余':'累计' }}</view>
-    <view>{{ days == -1? '　': '天' }}</view>
+    <view wx:if="{{days === -1}}"> </view>
+    <view wx:elif="{{m1.monthDay(originDate) == true && timeType == 2}}">周年</view>
+    <view wx:else>天</view>
+
     <view>{{date}}</view>
+
+
+
   </view>
 </view>
 <view class='cardContent'>
@@ -28,10 +72,17 @@
     <view></view>
     <view></view>
   </view>
-  <view class="font">
-    <view>{{ days == -1? '已结束': days }}</view>
-    {{ days == -1? '已结束': days }}
+
+  <view class="font" wx:if="{{days == -1}}">
+    <view>已结束</view>已结束
   </view>
+  <view class="font" wx:elif="{{m1.monthDay(originDate) == true && timeType == 2}}">
+    <view>{{m1.yesrsBetween(originDate)}}</view>{{m1.yesrsBetween(originDate)}}
+  </view>
+  <view class="font" wx:else>
+    <view>{{days}}</view>{{days}}
+  </view>
+
 </view>
 
 <view class="button-icon">
