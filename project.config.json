@@ -9,9 +9,11 @@
 	},
 	"compileType": "miniprogram",
 	"appid": "",
-	"libVersion": "2.0.9",
+	"libVersion": "2.4.4",
 	"projectname": "cherish-time",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -28,6 +30,17 @@
 		"game": {
 			"currentL": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "开发",
+					"pathName": "pages/index/index",
+					"query": "type=1"
+				}
+			]
 		}
 	}
 }

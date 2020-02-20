@@ -1,15 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/create/create"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "惜时光",
-    "navigationBarTextStyle":"black",
-    "backgroundColor":"#fbfbfb",
-    "backgroundColorTop":"#ffffff"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fbfbfb",
+    "backgroundColorTop": "#ffffff"
   },
 
   "debug": true

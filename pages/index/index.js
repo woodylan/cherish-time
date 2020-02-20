@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 var CONFIG = require("../../config");
+let interstitialAd = null
 
 const winW = wx.getSystemInfoSync().screenWidth; // 屏幕宽度
 const ratio = 750 / winW //px && rpx 单位转换 (乘于 这个属性是 px 转换成 rpx)
@@ -40,11 +41,27 @@ Page({
   },
 
   onLoad: function(options) {
+    console.log("初始化广告")
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-02d086c8e85e53f8'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+
     //获取用户信息
     this.getUserInfo()
   },
 
   onShow: function() {
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
+
     if (this.data.isCanRefresh) {
       this.getTimeData()
     }

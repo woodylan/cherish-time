@@ -78,6 +78,9 @@
     </view>
   </scroll-view>
   <wxc-loadmore wx:if="{{timeList.length > 6}}" is-end="{{isEnd}}" text="到底了～"></wxc-loadmore>
+  <view class="bottomAD">
+  <ad unit-id="adunit-a901cf8bc5d449f1" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
+  </view>
 </view>
 
 <view class="float-button" bindtap="bindPickerChange">
