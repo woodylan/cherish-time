@@ -35,9 +35,7 @@ Page({
     dataCount: 0, //列表数据数量
     isEnd: false, //是否到底
     currentPage: 1, //当前页码
-    lastPage: 1, //总共有多少页
-
-    isCanRefresh: false, //是否可以刷新
+    lastPage: 1 //总共有多少页
   },
 
   onLoad: function(options) {
@@ -63,9 +61,7 @@ Page({
   },
 
   onShow: function() {
-    if (this.data.isCanRefresh) {
-      this.getTimeData()
-    }
+    this.getTimeData()
 
     wx.showShareMenu({
       withShareTicket: true
