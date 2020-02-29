@@ -1,4 +1,5 @@
 /**index.wxss**/
+
 .block {
   border-radius: 15rpx;
   height: 200rpx;
@@ -212,8 +213,8 @@
   margin: 25rpx;
 }
 
-.bottomAD{
-   width: 94%;
-   padding-bottom: 25rpx;
-   margin: 0 auto;
+.bottomAD {
+  width: 94%;
+  padding-bottom: 25rpx;
+  margin: 0 auto;
 }

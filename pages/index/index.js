@@ -53,15 +53,16 @@ Page({
 
     //获取用户信息
     this.getUserInfo()
-  },
 
-  onShow: function() {
+    console.log("展示广告")
     if (interstitialAd) {
       interstitialAd.show().catch((err) => {
         console.error(err)
       })
     }
+  },
 
+  onShow: function() {
     if (this.data.isCanRefresh) {
       this.getTimeData()
     }
@@ -331,7 +332,6 @@ Page({
   //上拉加载
   onReachBottom() {
     console.log('上拉加载');
-    console.log(this.data.currentPage);
     if (this.data.currentPage < this.data.lastPage) {
       this.getTimeData(this.data.currentPage + 1, true)
     }

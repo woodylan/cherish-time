@@ -79,7 +79,7 @@
   </scroll-view>
   <wxc-loadmore wx:if="{{timeList.length > 6}}" is-end="{{isEnd}}" text="到底了～"></wxc-loadmore>
   <view class="bottomAD">
-  <ad unit-id="adunit-a901cf8bc5d449f1" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
+    <ad unit-id="adunit-a901cf8bc5d449f1" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
   </view>
 </view>
 
@@ -94,7 +94,7 @@
       <image src="/images/icon-close.png"></image>
     </view>
 
-    <countdown timeId="{{ currentMaskItem.id }}" timeName="{{ currentMaskItem.name }}" timeType="{{ currentMaskItem.type }}" days="{{ currentMaskItem.days }}" color="{{currentMaskColor}}" remark="{{ currentMaskItem.remark }}" date="{{m1.formatDataToString(currentMaskItem.date)}}" originDate="{{ currentMaskItem.date }}"
-      sentence="{{ currentMaskItem.sentence }}" binddelete="deleteEvent" bindedit="editEvent"></countdown>
+    <countdown timeId="{{ currentMaskItem.id }}" timeName="{{ currentMaskItem.name }}" timeType="{{ currentMaskItem.type }}" days="{{ currentMaskItem.days }}" color="{{currentMaskColor}}" remark="{{ currentMaskItem.remark }}" date="{{m1.formatDataToString(currentMaskItem.date)}}"
+      originDate="{{ currentMaskItem.date }}" sentence="{{ currentMaskItem.sentence }}" binddelete="deleteEvent" bindedit="editEvent"></countdown>
   </view>
 </view>
